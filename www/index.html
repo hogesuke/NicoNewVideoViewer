@@ -10,12 +10,6 @@
 	<title>ニコ動新着動画ビューア</title>
 </head>
 <body>
-<div ng-controller="VideoListController">
-	<ul>
-		<li ng-repeat="video in videos">
-			{{ video.id }}
-		</li>
-	</ul>
-</div>
+<div ng-include="'templates/videoList.html'"></div>
 </body>
 </html>

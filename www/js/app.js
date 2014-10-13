@@ -9,11 +9,11 @@ videosApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
 			when('/', {
-				templateUrl: '../../templates/index.html',
+				templateUrl: '../partials/videoList.html',
 				controller: 'VideoListController'
 			}).
 			otherwise({
-				redirectTo: '/videos/list'
+				redirectTo: '/'
 			});
 	}
 ]);

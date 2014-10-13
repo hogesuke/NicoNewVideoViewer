@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="videosApp">
+<head lang="ja-JP">
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="./js/lib/angular.js"></script>
+	<script type="text/javascript" src="./js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
+	<script type="text/javascript" src="./js/controllers.js"></script>
+	<title>ニコ動新着動画ビューア</title>
+</head>
+<body>
+<div ng-controller="VideoListController">
+	<ul>
+		<li ng-repeat="video in videos">
+			{{ video.id }}
+		</li>
+	</ul>
+</div>
+</body>
+</html>

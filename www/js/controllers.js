@@ -12,3 +12,17 @@ stockVideosControllers.controller('VideoListController', ['$scope', '$http',
 		})
 	}
 ]);
+
+stockVideosControllers.controller('VideoDetailController', ['$scope', '$http', '$routeParams',
+	function($scope, $http, $routeParams) {
+		$http({
+			method : 'get',
+			url    : '/api/videos/' + $routeParams.videoId
+		}).success(function(data) {
+			$scope.video = data.nicovideo_thumb_response.thumb;
+		}).error(function(data, status) {
+			// TODO
+			$scope.video = {text: 'error'};
+		})
+	}
+]);

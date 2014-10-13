@@ -8,12 +8,16 @@ var videosApp = angular.module('videosApp', [
 videosApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
-			when('/', {
-				templateUrl: '../partials/videoList.html',
+			when('/top', {
+				templateUrl: '../templates/top.tmpl.html',
 				controller: 'VideoListController'
 			}).
+			when('/videos/:videoId', {
+				templateUrl: '../templates/video.tmpl.html',
+				controller: 'VideoDetailController'
+			}).
 			otherwise({
-				redirectTo: '/'
+				redirectTo: '/top'
 			});
 	}
 ]);

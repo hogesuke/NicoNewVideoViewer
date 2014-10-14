@@ -1,7 +1,8 @@
 <div ng-controller="VideoListController">
 	<ul>
-		<li ng-repeat="video in videos">
-			{{ video.id }}
+		<li ng-repeat="video in videos | orderBy:'serial_no':true">
+			{{ video.title }}
 		</li>
 	</ul>
+	{{ videos }}
 </div>

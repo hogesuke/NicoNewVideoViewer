@@ -5,8 +5,19 @@ stockVideosControllers.controller('VideoListController', ['$scope', '$http',
 		$http({
 			method : 'get',
 			url    : '/api/videos/list/?page=1'
-		}).success(function(data) {
-			$scope.videos = data;
+		}).success(function(videos) {
+			$scope.videos = [];
+			$.each(videos, function(i, video) {
+				$http({
+					method : 'get',
+					url    : '/api/videos/' + video.id
+				}).success(function(data) {
+					data.serial_no = video.serial_no;
+					$scope.videos.push(data);
+				}).error(function(data, status) {
+					// TODO
+				})
+			})
 		}).error(function(data, status) {
 			// TODO
 		})

@@ -20,7 +20,7 @@ stockVideosControllers.controller('VideoListController', ['$scope', '$http',
 			})
 		}).error(function(data, status) {
 			// TODO
-		})
+		});
 	}
 ]);
 
@@ -34,6 +34,26 @@ stockVideosControllers.controller('VideoDetailController', ['$scope', '$http', '
 		}).error(function(data, status) {
 			// TODO
 			$scope.video = {text: 'error'};
-		})
+		});
+	}
+]);
+
+stockVideosControllers.controller('AddMyContributorController', ['$scope', '$http',
+	function($scope, $http) {
+		console.debug('coco');
+		$scope.addContributor = function(contributor) {
+//			console.debug('gogo');
+//			$http({
+//				method : 'post',
+//				url    : '/api/my/contributors',
+//				data   : {id: $scope.contributor.id}
+//			}).success(function(data) {
+//				// TODO
+//				console.debug('sccess');
+//			}).error(function(data, status) {
+//				// TODO
+//				console.debug('error');
+//			});
+		};
 	}
 ]);

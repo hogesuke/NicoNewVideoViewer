@@ -16,6 +16,10 @@ videosApp.config(['$routeProvider',
 				templateUrl: '../templates/video.tmpl.html',
 				controller: 'VideoDetailController'
 			}).
+			when('/my/contributors', {
+				templateUrl: '../templates/myContributors.tmpl.html',
+				controller: 'AddMyContributorController'
+			}).
 			otherwise({
 				redirectTo: '/top'
 			});

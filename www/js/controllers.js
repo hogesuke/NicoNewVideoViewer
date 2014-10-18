@@ -45,7 +45,7 @@ stockVideosControllers.controller('AddMyContributorController', ['$scope', '$htt
 		$scope.submit = function(contributor) {
 			$http({
 				method : 'post',
-				url    : '/api/my/contributors',
+				url    : '/api/my/contributors/',
 				data   : {id: $scope.contributor.id}
 			}).success(function(data) {
 				// TODO

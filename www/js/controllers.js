@@ -40,6 +40,22 @@ stockVideosControllers.controller('VideoDetailController', ['$scope', '$http', '
 	}
 ]);
 
+stockVideosControllers.controller('MyVideoListController', ['$scope', '$http',
+	function($scope, $http) {
+		$http({
+			method : 'get',
+			url    : '/api/my/videos/'
+		}).success(function(data) {
+			// TODO
+			console.debug('sccess');
+			$scope.videos = data;
+		}).error(function(data, status) {
+			// TODO
+			console.debug('error');
+		});
+	}
+]);
+
 stockVideosControllers.controller('MyContributorController', ['$scope', '$http',
 	function($scope, $http) {
 		$http({

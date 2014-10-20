@@ -1,6 +1,6 @@
 <div>
 	<ul>
-		<li ng-repeat="video in videos | orderBy:'serial_no':true">
+		<li ng-repeat="video in videos">
 			<img src="{{ video.thumbnail_url }}"><span>{{ video.title }}</span>
 		</li>
 	</ul>

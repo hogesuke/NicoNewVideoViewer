@@ -10,3 +10,11 @@
 		<p><input type="submit" value="add" ng-disabled="addContributor.$invalid"></p>
 	</form>
 </div>
+<div ng-controller="MyContributorController">
+	<ul>
+		<li ng-repeat="contributor in contributors">
+			<img src="{{ contributor.icon_url }}"><span>{{ contributor.name }}</span>
+		</li>
+	</ul>
+	{{ contributors }}
+</div>

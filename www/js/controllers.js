@@ -40,6 +40,22 @@ stockVideosControllers.controller('VideoDetailController', ['$scope', '$http', '
 	}
 ]);
 
+stockVideosControllers.controller('MyContributorController', ['$scope', '$http',
+	function($scope, $http) {
+		$http({
+			method : 'get',
+			url    : '/api/my/contributors/'
+		}).success(function(data) {
+			// TODO
+			console.debug('sccess');
+			$scope.contributors = data;
+		}).error(function(data, status) {
+			// TODO
+			console.debug('error');
+		});
+	}
+]);
+
 stockVideosControllers.controller('AddMyContributorController', ['$scope', '$http',
 	function($scope, $http) {
 		$scope.submit = function(contributor) {

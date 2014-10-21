@@ -1,58 +1,29 @@
 var stockVideosControllers = angular.module('stockVideosControllers', []);
 
-stockVideosControllers.controller('VideoListController', ['$scope', '$http',
-	function($scope, $http) {
-		$http({
-			method : 'get',
-			url    : '/api/videos/list/?page=1'
-		}).success(function(videos) {
-			$scope.videos = [];
-			$.each(videos, function(i, video) {
-				$http({
-					method : 'get',
-					url    : '/api/videos/' + video.id
-				}).success(function(data) {
-					data.serial_no = video.serial_no;
-					$scope.videos.push(data);
-				}).error(function(data, status) {
-					// TODO
-				})
-			})
-		}).error(function(data, status) {
-			// TODO
-		});
-
-		$scope.piyo = {aaa: 'bbb'};
+stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService',
+	function($scope, VideoService) {
+		var deferred = VideoService.reqList();
+		deferred.then(function(videos) {
+			$scope.videos = videos;
+		})
 	}
 ]);
 
-stockVideosControllers.controller('VideoDetailController', ['$scope', '$http', '$routeParams',
-	function($scope, $http, $routeParams) {
-		$http({
-			method : 'get',
-			url    : '/api/videos/' + $routeParams.videoId
-		}).success(function(data) {
-			$scope.video = data.nicovideo_thumb_response.thumb;
-		}).error(function(data, status) {
-			// TODO
-			$scope.video = {text: 'error'};
+stockVideosControllers.controller('VideoDetailController', ['$scope', '$routeParams', 'VideoService',
+	function($scope, $routeParams, VideoService) {
+		var deferred = VideoService.reqDetail($routeParams.videoId);
+		deferred.then(function(data) {
+			$scope.video = data;
 		});
 	}
 ]);
 
-stockVideosControllers.controller('MyVideoListController', ['$scope', '$http',
-	function($scope, $http) {
-		$http({
-			method : 'get',
-			url    : '/api/my/videos/'
-		}).success(function(data) {
-			// TODO
-			console.debug('sccess');
+stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService',
+	function($scope, VideoService) {
+		var deferred = VideoService.reqMyList();
+		deferred.then(function(data) {
 			$scope.videos = data;
-		}).error(function(data, status) {
-			// TODO
-			console.debug('error');
-		});
+		})
 	}
 ]);
 

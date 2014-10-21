@@ -55,4 +55,35 @@ angular.module('videosApp').
 				return deferred.promise;
 			}
 		};
+	}]).
+	factory('ContributorService', [ '$http', '$q', function ($http, $q) {
+		return {
+			reqMyList: function() {
+				var deferred = $q.defer();
+				$http({
+					method : 'get',
+					url    : '/api/my/contributors/'
+				}).success(function(data) {
+					deferred.resolve(data);
+				}).error(function() {
+					// TODO
+					deferred.reject();
+				});
+				return deferred.promise;
+			},
+			submit: function(contributor_id) {
+				var deferred = $q.defer();
+				$http({
+					method : 'post',
+					url    : '/api/my/contributors/',
+					data   : {id: contributor_id}
+				}).success(function(data) {
+					deferred.resolve(data);
+				}).error(function() {
+					// TODO
+					deferred.reject();
+				});
+				return deferred.promise;
+			}
+		}
 	}]);

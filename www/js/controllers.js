@@ -27,35 +27,23 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 	}
 ]);
 
-stockVideosControllers.controller('MyContributorController', ['$scope', '$http',
-	function($scope, $http) {
-		$http({
-			method : 'get',
-			url    : '/api/my/contributors/'
-		}).success(function(data) {
-			// TODO
-			console.debug('sccess');
+stockVideosControllers.controller('MyContributorController', ['$scope', 'ContributorService',
+	function($scope, ContributorService) {
+		var deferred = ContributorService.reqMyList();
+		deferred.then(function(data) {
 			$scope.contributors = data;
-		}).error(function(data, status) {
-			// TODO
-			console.debug('error');
 		});
 	}
 ]);
 
-stockVideosControllers.controller('AddMyContributorController', ['$scope', '$http',
-	function($scope, $http) {
-		$scope.submit = function(contributor) {
-			$http({
-				method : 'post',
-				url    : '/api/my/contributors/',
-				data   : {id: $scope.contributor.id}
-			}).success(function(data) {
+stockVideosControllers.controller('AddMyContributorController', ['$scope', 'ContributorService',
+	function($scope, ContributorService) {
+		$scope.submit = function() {
+			console.debug(ContributorService);
+			var deferred = ContributorService.submit($scope.contributor.id);
+			deferred.then(function() {
 				// TODO
-				console.debug('sccess');
-			}).error(function(data, status) {
-				// TODO
-				console.debug('error');
+				console.debug('complete');
 			});
 		};
 	}

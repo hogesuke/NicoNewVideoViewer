@@ -7,21 +7,7 @@ angular.module('videosApp').
 					method : 'get',
 					url    : '/api/videos/list/?page=1'
 				}).success(function(data) {
-					var videos = [];
-					$.each(data, function(i, video) {
-						$http({
-							method : 'get',
-							url    : '/api/videos/' + video.id
-						}).success(function(data) {
-							console.debug(data);
-							data.serial_no = video.serial_no;
-							videos.push(data);
-							deferred.resolve(videos)
-						}).error(function() {
-							// TODO
-							deferred.reject();
-						})
-					})
+					deferred.resolve(data)
 				}).error(function() {
 					// TODO
 					deferred.reject();

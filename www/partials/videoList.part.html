@@ -2,7 +2,7 @@
 	<ul>
 		<li ng-repeat="video in videos | orderBy:'serial_no':true">
 			<img src="{{ video.thumbnail_url }}"><span>{{ video.title }}</span>
-			<button ng-click="watched(video.video_id.substr(2))">watched</button>
+			<button ng-click="watched(video.id)">watched</button>
 		</li>
 	</ul>
 	{{ videos }}

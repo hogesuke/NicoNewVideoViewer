@@ -2,6 +2,8 @@
 	<ul>
 		<li ng-repeat="video in videos">
 			<img src="{{ video.thumbnail_url }}"><span>{{ video.title }}</span>
+			<button ng-click="watched(video.id)">watched</button>
+			<span>{{ video.watched }}</span>
 		</li>
 	</ul>
 	{{ videos }}

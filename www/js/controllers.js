@@ -26,6 +26,8 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 		deferred.then(function(data) {
 			$scope.videos = data;
 		})
+
+		$scope.watched = VideoService.watched;
 	}
 ]);
 

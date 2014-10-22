@@ -5,7 +5,9 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 		var deferred = VideoService.reqList();
 		deferred.then(function(videos) {
 			$scope.videos = videos;
-		})
+		});
+
+		$scope.watched = VideoService.watched;
 	}
 ]);
 

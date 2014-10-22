@@ -53,6 +53,19 @@ angular.module('videosApp').
 					deferred.reject({});
 				});
 				return deferred.promise;
+			},
+			watched: function(videoId) {
+				var deferred = $q.defer();
+				$http({
+					method : 'post',
+					url    : '/api/videos/' + videoId + '/completion/'
+				}).success(function() {
+					deferred.resolve();
+				}).error(function() {
+					// TODO
+					deferred.reject({});
+				});
+				return deferred.promise;
 			}
 		};
 	}]).

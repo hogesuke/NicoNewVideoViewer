@@ -83,6 +83,20 @@ angular.module('videosApp').
 					deferred.reject();
 				});
 				return deferred.promise;
+			},
+			delete: function(contributor_id) {
+				var deferred = $q.defer();
+				$http({
+					method : 'delete',
+					url    : '/api/my/contributors/',
+					data   : {id: contributor_id}
+				}).success(function(data) {
+					deferred.resolve(data);
+				}).error(function() {
+					// TODO
+					deferred.reject();
+				});
+				return deferred.promise;
 			}
 		}
 	}]);

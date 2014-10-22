@@ -37,6 +37,8 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		deferred.then(function(data) {
 			$scope.contributors = data;
 		});
+
+		$scope.delete = ContributorService.delete;
 	}
 ]);
 

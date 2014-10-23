@@ -1,10 +1,8 @@
-<div ng-controller="VideoListController">
-	<ul>
-		<li ng-repeat="video in videos | orderBy:'serial_no':true">
-			<img src="{{ video.thumbnail_url }}"><span>{{ video.title }}</span>
-			<button ng-click="watched(video.id)">watched</button>
-			<span>{{ video.watched }}</span>
-		</li>
-	</ul>
-	{{ videos }}
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#new" data-toggle="tab">New</a></li>
+	<li><a href="#my" data-toggle="tab">My</a></li>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane active" id="new" ng-include="'./partials/newVideoList.part.html'"></div>
+	<div class="tab-pane" id="my" ng-include="'./partials/myVideoList.part.html'"></div>
 </div>

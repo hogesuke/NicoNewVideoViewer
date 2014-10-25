@@ -1,11 +1,11 @@
 angular.module('videosApp').
 	factory('VideoService', [ '$http', '$q', function ($http, $q) {
 		return {
-			reqList: function() {
+			reqList: function(pageNo) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/videos/list/?page=1'
+					url    : '/api/videos/list/?page=' + pageNo
 				}).success(function(data) {
 					deferred.resolve(data)
 				}).error(function() {

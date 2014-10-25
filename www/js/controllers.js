@@ -1,13 +1,30 @@
-var stockVideosControllers = angular.module('stockVideosControllers', []);
+var stockVideosControllers = angular.module('stockVideosControllers', ['ui.bootstrap']);
 
-stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService',
-	function($scope, VideoService) {
-		var deferred = VideoService.reqList();
+stockVideosControllers.controller('VideoListController', ['$scope', '$location', 'VideoService',
+	function($scope, $location, VideoService) {
+		$scope.totalItems = 1000;
+		$scope.itemsPerPage = 20;
+		$scope.currentPage = 1;
+
+		var deferred = VideoService.reqList(1);
 		deferred.then(function(videos) {
 			$scope.videos = videos;
 		});
 
 		$scope.watched = VideoService.watched;
+
+		$scope.setPage = function (pageNo) {
+			console.debug(pageNo);
+			$scope.currentPage = pageNo;
+		};
+
+		$scope.pageChanged = function() {
+			console.debug($scope.currentPage);
+			var deferred = VideoService.reqList($scope.currentPage);
+			deferred.then(function(videos) {
+				$scope.videos = videos;
+			});
+		};
 	}
 ]);
 

@@ -1,4 +1,5 @@
 <div ng-controller="VideoListController">
+	<pager ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Newer" next-text="Older »"></pager>
 	<ul>
 		<li ng-repeat="video in videos | orderBy:'serial_no':true">
 			<img src="{{ video.thumbnail_url }}"><span>{{ video.title }}</span>
@@ -6,11 +7,5 @@
 			<span>{{ video.watched }}</span>
 		</li>
 	</ul>
+	<pager ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Newer" next-text="Older »"></pager>
 </div>
-<div>
-	<ul class="pager">
-		<li><a href="#/new"><span class="glyphicon glyphicon-arrow-left"></span>Newer</a></li>
-		<li><a href="#/new">Older<span class="glyphicon glyphicon-arrow-right"></span></a></li>
-	</ul>
-</div>
-

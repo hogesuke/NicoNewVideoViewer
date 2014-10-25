@@ -1,7 +1,7 @@
 var stockVideosControllers = angular.module('stockVideosControllers', ['ui.bootstrap']);
 
-stockVideosControllers.controller('VideoListController', ['$scope', '$location', 'VideoService',
-	function($scope, $location, VideoService) {
+stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService',
+	function($scope, VideoService) {
 		$scope.totalItems = 1000;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
@@ -25,6 +25,11 @@ stockVideosControllers.controller('VideoListController', ['$scope', '$location',
 				$scope.videos = videos;
 			});
 		};
+	}
+]);
+
+stockVideosControllers.controller('VideoListTabsController', ['$scope',
+	function($scope) {
 	}
 ]);
 

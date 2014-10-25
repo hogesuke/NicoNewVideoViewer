@@ -2,19 +2,19 @@
 	<form novalidate name="addContributor" ng-submit="submit(contributor)">
 		<p>
 			ID:<input type="text" name="id" ng-model="contributor.id" required ng-maxlength="10" ng-pattern="/^[0-9]+$/">
-			<span ng-show="addContributor.id.$error.required">Required!</span>
-			<span ng-show="addContributor.id.$error.minlength">Too short!</span>
-			<span ng-show="addContributor.id.$error.maxlength">Too long!</span>
-			<span ng-show="addContributor.id.$error.pattern">Miss match!</span>
+			<p ng-show="addContributor.id.$error.required">Required!</p>
+			<p ng-show="addContributor.id.$error.minlength">Too short!</p>
+			<p ng-show="addContributor.id.$error.maxlength">Too long!</p>
+			<p ng-show="addContributor.id.$error.pattern">Miss match!</p>
 		</p>
-		<p><input type="submit" value="add" ng-disabled="addContributor.$invalid"></p>
+		<p><input class="btn btn-primary" type="submit" value="add" ng-disabled="addContributor.$invalid"></p>
 	</form>
 </div>
 <div ng-controller="MyContributorController">
 	<ul>
 		<li ng-repeat="contributor in contributors">
 			<img class="contributor-thumbnail" src="{{ contributor.icon_url }}"><span>{{ contributor.name }}</span>
-			<button ng-click="delete(contributor.id)">delete</button>
+			<button class="btn btn-danger btn-xs" ng-click="delete(contributor.id)"><span class="glyphicon glyphicon-remove"></span></button>
 		</li>
 	</ul>
 </div>

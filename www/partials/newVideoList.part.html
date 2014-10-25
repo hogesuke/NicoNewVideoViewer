@@ -2,7 +2,7 @@
 	<pager ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Newer" next-text="Older »"></pager>
 	<ul>
 		<li ng-repeat="video in videos | orderBy:'serial_no':true">
-			<img src="{{ video.thumbnail_url }}"><span>{{ video.title }}</span>
+			<img class="video-thumbnail" src="{{ video.thumbnail_url }}"><span>{{ video.title }}</span>
 			<button ng-click="watched(video.id)">watched</button>
 			<span>{{ video.watched }}</span>
 		</li>

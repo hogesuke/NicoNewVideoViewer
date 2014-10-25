@@ -13,7 +13,7 @@
 <div ng-controller="MyContributorController">
 	<ul>
 		<li ng-repeat="contributor in contributors">
-			<img src="{{ contributor.icon_url }}"><span>{{ contributor.name }}</span>
+			<img class="contributor-thumbnail" src="{{ contributor.icon_url }}"><span>{{ contributor.name }}</span>
 			<button ng-click="delete(contributor.id)">delete</button>
 		</li>
 	</ul>

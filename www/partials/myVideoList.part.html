@@ -1,11 +1,13 @@
 <div ng-controller="MyVideoListController">
 	<pager ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Newer" next-text="Older »"></pager>
-	<ul>
-		<li ng-repeat="video in videos">
-			<img class="video-thumbnail" src="{{ video.thumbnail_url }}"><span>{{ video.title }}</span>
-			<button ng-click="watched(video.id)">watched</button>
-			<span>{{ video.watched }}</span>
-		</li>
-	</ul>
+	<div>
+		<div class="video-block" ng-repeat="video in videos">
+			<div class="video-info" style="background-image: url({{ video.thumbnail_url }});">
+				<div class="title">{{ video.title }}</div>
+				<button ng-click="watched(video.id)">watched</button>
+				<span>{{ video.watched }}</span>
+			</div>
+		</div>
+	</div>
 	<pager ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Newer" next-text="Older »"></pager>
 </div>

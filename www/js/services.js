@@ -40,6 +40,32 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
+			reqVideosCount: function() {
+				var deferred = $q.defer();
+				$http({
+					method : 'get',
+					url    : '/api/videos/count/'
+				}).success(function(data) {
+					deferred.resolve(data.count);
+				}).error(function() {
+					// TODO
+					deferred.reject({});
+				});
+				return deferred.promise;
+			},
+			reqMyVideosCount: function() {
+				var deferred = $q.defer();
+				$http({
+					method : 'get',
+					url    : '/api/my/videos/count/'
+				}).success(function(data) {
+					deferred.resolve(data.count);
+				}).error(function() {
+					// TODO
+					deferred.reject({});
+				});
+				return deferred.promise;
+			},
 			watched: function(videoId) {
 				var deferred = $q.defer();
 				$http({

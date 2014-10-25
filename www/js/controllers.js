@@ -2,12 +2,15 @@ var stockVideosControllers = angular.module('stockVideosControllers', ['ui.boots
 
 stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService',
 	function($scope, VideoService) {
-		$scope.totalItems = 1000;
+		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 
-		var deferred = VideoService.reqList(1);
-		deferred.then(function(videos) {
+		VideoService.reqVideosCount().then(function(count) {
+			$scope.totalItems = count;
+		}).then(function() {
+			return VideoService.reqList(1);
+		}).then(function(videos) {
 			$scope.videos = videos;
 		});
 
@@ -42,14 +45,17 @@ stockVideosControllers.controller('VideoDetailController', ['$scope', '$routePar
 
 stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService',
 	function($scope, VideoService) {
-		$scope.totalItems = 1000;
+		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 
-		var deferred = VideoService.reqMyList();
-		deferred.then(function(data) {
-			$scope.videos = data;
-		})
+		VideoService.reqMyVideosCount().then(function(count) {
+			$scope.totalItems = count;
+		}).then(function() {
+			return VideoService.reqMyList(1);
+		}).then(function(videos) {
+			$scope.videos = videos;
+		});
 
 		$scope.watched = VideoService.watched;
 
@@ -58,7 +64,6 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 		};
 
 		$scope.pageChanged = function() {
-			console.debug($scope.currentPage);
 			var deferred = VideoService.reqMyList($scope.currentPage);
 			deferred.then(function(videos) {
 				$scope.videos = videos;
@@ -81,7 +86,6 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 stockVideosControllers.controller('AddMyContributorController', ['$scope', 'ContributorService',
 	function($scope, ContributorService) {
 		$scope.submit = function() {
-			console.debug(ContributorService);
 			var deferred = ContributorService.submit($scope.contributor.id);
 			deferred.then(function() {
 				// TODO

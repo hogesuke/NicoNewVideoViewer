@@ -31,7 +31,7 @@ angular.module('videosApp').
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/my/videos/?page=' + pageNo
+					url    : '/api/my/videos/list/?page=' + pageNo
 				}).success(function(data) {
 					deferred.resolve(data);
 				}).error(function() {

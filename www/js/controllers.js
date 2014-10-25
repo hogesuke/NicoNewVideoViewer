@@ -14,12 +14,10 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 		$scope.watched = VideoService.watched;
 
 		$scope.setPage = function (pageNo) {
-			console.debug(pageNo);
 			$scope.currentPage = pageNo;
 		};
 
 		$scope.pageChanged = function() {
-			console.debug($scope.currentPage);
 			var deferred = VideoService.reqList($scope.currentPage);
 			deferred.then(function(videos) {
 				$scope.videos = videos;
@@ -44,12 +42,28 @@ stockVideosControllers.controller('VideoDetailController', ['$scope', '$routePar
 
 stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService',
 	function($scope, VideoService) {
+		$scope.totalItems = 1000;
+		$scope.itemsPerPage = 20;
+		$scope.currentPage = 1;
+
 		var deferred = VideoService.reqMyList();
 		deferred.then(function(data) {
 			$scope.videos = data;
 		})
 
 		$scope.watched = VideoService.watched;
+
+		$scope.setPage = function (pageNo) {
+			$scope.currentPage = pageNo;
+		};
+
+		$scope.pageChanged = function() {
+			console.debug($scope.currentPage);
+			var deferred = VideoService.reqMyList($scope.currentPage);
+			deferred.then(function(videos) {
+				$scope.videos = videos;
+			});
+		};
 	}
 ]);
 

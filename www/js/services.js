@@ -27,11 +27,11 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			reqMyList: function() {
+			reqMyList: function(pageNo) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/my/videos/'
+					url    : '/api/my/videos/?page=' + pageNo
 				}).success(function(data) {
 					deferred.resolve(data);
 				}).error(function() {

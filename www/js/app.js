@@ -11,6 +11,12 @@ videosApp.config(['$routeProvider',
 			when('/top', {
 				templateUrl: '../templates/top.tmpl.html'
 			}).
+			when('/new', {
+				templateUrl: '../templates/top.tmpl.html'
+			}).
+			when('/my', {
+				templateUrl: '../templates/top.tmpl.html'
+			}).
 			when('/videos/:videoId', {
 				templateUrl: '../templates/video.tmpl.html',
 				controller: 'VideoDetailController'

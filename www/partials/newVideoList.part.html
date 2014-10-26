@@ -1,7 +1,7 @@
 <div ng-controller="VideoListController">
 	<pager ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Newer" next-text="Older »"></pager>
 	<div>
-		<div class="video-block" ng-repeat="video in videos | orderBy:'serial_no':true">
+		<div class="video-block" ng-repeat="video in videos" ng-class-odd="'odd'" ng-class-even="'even'">
 			<div class="video-info" style="background-image: url({{ video.thumbnail_url }});">
 				<div class="contributor"><img class="contributor-thumbnail" src="{{ video.icon_url }}">{{ video.contributor_name }}</div>
 				<div class="title"><a href="http://www.nicovideo.jp/watch/sm{{ video.id }}" target="_blank">{{ video.title }}</a></div>

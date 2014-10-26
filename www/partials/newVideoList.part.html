@@ -5,8 +5,14 @@
 			<div class="video-info" style="background-image: url({{ video.thumbnail_url }});">
 				<div class="contributor"><img class="contributor-thumbnail" src="{{ video.icon_url }}">{{ video.contributor_name }}</div>
 				<div class="title"><a href="http://www.nicovideo.jp/watch/sm{{ video.id }}" target="_blank">{{ video.title }}</a></div>
-				<button ng-click="watched(video.id)">watched</button>
-				<span>{{ video.watched }}</span>
+				<div class="footer">
+					<div class="tools">
+						<button class="btn btn-success btn-xs" ng-click="watched(video.id)"  ng-model="isWatched" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+							<span class="glyphicon glyphicon-ok"></span> watched
+						</button>
+						<span>{{ video.watched }}</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

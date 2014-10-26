@@ -3,16 +3,18 @@ body {
 }
 
 .video-block {
+	padding: 5px;
 	clear: both;
 	overflow: hidden;
 }
 
 .video-block .video-info {
-	height: 90px;
+	height: 80px;
+	width: 100%;
 	padding-left: 120px;
 	background-size: 104px 80px;
 	background-repeat: no-repeat;
-
+	position: relative;
 }
 
 .video-block .video-info .title, .contributor {
@@ -20,6 +22,12 @@ body {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	font-size: 13px;
+}
+
+.video-block .video-info .footer {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
 }
 
 .contributor-thumbnail {

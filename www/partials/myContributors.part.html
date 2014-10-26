@@ -20,6 +20,8 @@
 </div>
 <div ng-controller="MyContributorController">
 	<div>
+		<div>Fav Users</div>
+		<hr style="margin: 5px 0;">
 		<div ng-repeat="contributor in contributors">
 			<img class="contributor-thumbnail" src="{{ contributor.icon_url }}"><span>{{ contributor.name }}</span>
 			<button class="btn btn-danger btn-xs" ng-click="delete(contributor.id)"><span class="glyphicon glyphicon-remove"></span></button>

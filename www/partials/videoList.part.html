@@ -1,10 +1,10 @@
 <div ng-controller="VideoListTabsController">
 	<tabset>
-		<tab heading="New">
-			<div class="tab-pane active" id="new" ng-include="'./partials/newVideoList.part.html'"></div>
-		</tab>
 		<tab heading="My">
 			<div class="tab-pane" id="my" ng-include="'./partials/myVideoList.part.html'"></div>
+		</tab>
+		<tab heading="All">
+			<div class="tab-pane active" id="new" ng-include="'./partials/newVideoList.part.html'"></div>
 		</tab>
 	</tabset>
 </div>

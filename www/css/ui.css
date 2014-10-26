@@ -29,6 +29,7 @@ body {
 .contributor-thumbnail {
 	width: 24px;
 	height: 24px;
+	margin: 3px;
 }
 
 form[name="addContributor"] input[name="id"] {

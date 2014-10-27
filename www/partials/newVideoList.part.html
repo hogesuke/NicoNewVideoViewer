@@ -7,10 +7,9 @@
 				<div class="title"><a href="http://www.nicovideo.jp/watch/sm{{ video.id }}" target="_blank">{{ video.title }}</a></div>
 				<div class="footer">
 					<div class="tools">
-						<button class="btn btn-success btn-xs" ng-click="watched(video.id)"  ng-model="isWatched" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+						<button class="btn btn-xs" ng-class="{'btn-success': video.watched == 'true', 'btn-primary': video.watched == 'false'}" ng-click="watched($index)">
 							<span class="glyphicon glyphicon-ok"></span> watched
 						</button>
-						<span>{{ video.watched }}</span>
 					</div>
 				</div>
 			</div>

@@ -71,8 +71,8 @@ angular.module('videosApp').
 				$http({
 					method : 'post',
 					url    : '/api/videos/' + videoId + '/completion/'
-				}).success(function() {
-					deferred.resolve();
+				}).success(function(result) {
+					deferred.resolve(result.isWatched);
 				}).error(function() {
 					// TODO
 					deferred.reject({});

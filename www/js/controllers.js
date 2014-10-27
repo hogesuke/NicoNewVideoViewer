@@ -14,7 +14,11 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 			$scope.videos = videos;
 		});
 
-		$scope.watched = VideoService.watched;
+		$scope.watched = function(videoIndex) {
+			VideoService.watched($scope.videos[videoIndex].id).then(function(result) {
+				$scope.videos[videoIndex].watched = result;
+			});
+		}
 
 		$scope.setPage = function (pageNo) {
 			$scope.currentPage = pageNo;
@@ -57,7 +61,11 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 			$scope.videos = videos;
 		});
 
-		$scope.watched = VideoService.watched;
+		$scope.watched = function(videoIndex) {
+			VideoService.watched($scope.videos[videoIndex].id).then(function(result) {
+				$scope.videos[videoIndex].watched = result;
+			});
+		}
 
 		$scope.setPage = function (pageNo) {
 			$scope.currentPage = pageNo;

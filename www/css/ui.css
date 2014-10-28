@@ -2,6 +2,11 @@ body {
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
+.btn-default {
+	background-image: none;
+	box-shadow: none;
+}
+
 .video-block {
 	padding: 8px;
 	clear: both;
@@ -16,14 +21,6 @@ body {
 	background-size: 104px 80px;
 	background-repeat: no-repeat;
 	position: relative;
-}
-
-.video-block.odd {
-	background-color: #ffffff;
-}
-
-.video-block.even {
-	background-color: #f5f5f5;
 }
 
 .video-block .video-info .title, .contributor {

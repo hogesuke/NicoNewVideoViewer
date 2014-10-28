@@ -78,6 +78,10 @@ angular.module('videosApp').
 					deferred.reject({});
 				});
 				return deferred.promise;
+			},
+			formatPostDatetime: function(unformatDatetime) {
+				moment.lang('ja');
+				return moment(unformatDatetime, "YYYYMMDDHHmm").format('YYYY/MM/DD HH:mm');
 			}
 		};
 	}]).

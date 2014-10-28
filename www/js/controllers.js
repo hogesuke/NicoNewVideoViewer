@@ -30,6 +30,8 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 				$scope.videos = videos;
 			});
 		};
+
+		$scope.formatPostDatetime = VideoService.formatPostDatetime;
 	}
 ]);
 
@@ -77,6 +79,8 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 				$scope.videos = videos;
 			});
 		};
+
+		$scope.formatPostDatetime = VideoService.formatPostDatetime;
 	}
 ]);
 

@@ -34,6 +34,16 @@ body {
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
+	width: 100%;
+	padding-left: 120px;
+}
+
+.video-block .video-info .footer .post-datetime {
+	float: left;
+}
+
+.video-block .video-info .footer .tools {
+	float: right;
 }
 
 .contributor-thumbnail {

@@ -40,6 +40,19 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
+			reqContributorList: function(pageNo, contributorId) {
+				var deferred = $q.defer();
+				$http({
+					method : 'get',
+					url    : '/api/contributors/' + contributorId + '/videos/list/?page=' + pageNo
+				}).success(function(data) {
+					deferred.resolve(data);
+				}).error(function() {
+					// TODO
+					deferred.reject({});
+				});
+				return deferred.promise;
+			},
 			reqVideosCount: function() {
 				var deferred = $q.defer();
 				$http({
@@ -58,6 +71,19 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/my/videos/count/'
+				}).success(function(data) {
+					deferred.resolve(data.count);
+				}).error(function() {
+					// TODO
+					deferred.reject({});
+				});
+				return deferred.promise;
+			},
+			reqContributorVideosCount: function(contributorId) {
+				var deferred = $q.defer();
+				$http({
+					method : 'get',
+					url    : '/api/contributors/' + contributorId + '/videos/count/'
 				}).success(function(data) {
 					deferred.resolve(data.count);
 				}).error(function() {
@@ -129,4 +155,24 @@ angular.module('videosApp').
 				return deferred.promise;
 			}
 		}
+	}]).
+	factory('TabService', [function() {
+		return {
+			tabs: [
+				{ id: 'my', name: 'My', partial: './partials/myVideoList.part.html', contributor_id: '' },
+				{ id: 'all', name: 'All', partial: './partials/newVideoList.part.html', contributor_id: '' }
+			],
+			getTabs: function () {
+				return this.tabs;
+			},
+			addTab: function (id, name, partial, contributorId) {
+				if (this.tabs[this.tabs.length - 1].contributor_id) {
+					this.tabs.pop();
+				}
+				this.tabs.push({ id: id, name: name, partial: partial, contributor_id: contributorId, active: true });
+			},
+			getContributorId: function () {
+				return this.tabs[this.tabs.length - 1].contributor_id;
+			}
+		};
 	}]);

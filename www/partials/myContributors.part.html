@@ -20,12 +20,11 @@
 	<div>
 		<div>Fav Users</div>
 		<hr style="margin: 5px 0;">
-		<div ng-repeat="contributor in contributors">
-			<div>
-				<img class="contributor-thumbnail" src="{{ contributor.icon_url }}">
-				<a ng-click="addTab(contributor.id, contributor.name, './partials/contributorVideoList.part.html', contributor.id)">{{ contributor.name }}</a>
+		<div class="contributor-block" ng-repeat="contributor in contributors">
+			<div class="name-block">
+				<a class="name" style="background-image: url({{ contributor.icon_url }});" ng-click="addTab(contributor.id, contributor.name, './partials/contributorVideoList.part.html', contributor.id)">{{ contributor.name }}</a>
 			</div>
-			<button class="btn btn-danger btn-xs" ng-click="delete(contributor.id)"><span class="glyphicon glyphicon-remove"></span></button>
+			<button class="remove-btn btn btn-default btn-xs" ng-click="delete(contributor.id)"><span class="glyphicon glyphicon-trash"></span></button>
 		</div>
 	</div>
 </div>

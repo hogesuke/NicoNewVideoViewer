@@ -67,6 +67,27 @@ body {
 	margin: 3px;
 }
 
+.contributor-block {
+	clear: both;
+	margin: 3px 0;
+}
+
+.contributor-block .name-block {
+	width: 83%;
+	float: left;
+}
+
+.contributor-block .name-block .name {
+	width: 95%;
+	padding-left: 30px;
+	float: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+}
+
 form[name="addContributor"] input[name="id"] {
 	width: 100%;
 }

@@ -109,16 +109,11 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		$scope.addTab = function(id, name, partial, contributorId) {
 			TabService.addTab(id, name, partial, contributorId);
 		};
-	}
-]);
 
-stockVideosControllers.controller('AddMyContributorController', ['$scope', 'ContributorService',
-	function($scope, ContributorService) {
 		$scope.submit = function() {
 			var deferred = ContributorService.submit($scope.contributor.id);
-			deferred.then(function() {
-				// TODO
-				console.debug('complete');
+			deferred.then(function(contributors) {
+				$scope.contributors = contributors;
 			});
 		};
 	}

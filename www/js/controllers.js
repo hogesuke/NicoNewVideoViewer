@@ -10,7 +10,7 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 		VideoService.reqVideosCount().then(function(count) {
 			$scope.totalItems = count;
 		}).then(function() {
-			return VideoService.reqList(1);
+			return VideoService.reqList(1, $scope.itemsPerPage);
 		}).then(function(videos) {
 			$scope.videos = videos;
 			$scope.isLoading = false;
@@ -27,11 +27,10 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 		};
 
 		$scope.pageChanged = function() {
-			var deferred = VideoService.reqList($scope.currentPage);
 			$scope.videos = [];
 			$scope.isLoading = true;
 
-			deferred.then(function(videos) {
+			VideoService.reqList($scope.currentPage, $scope.itemsPerPage).then(function(videos) {
 				$scope.videos = videos;
 				$scope.isLoading = false;
 			});
@@ -66,7 +65,7 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 		VideoService.reqMyVideosCount().then(function(count) {
 			$scope.totalItems = count;
 		}).then(function() {
-			return VideoService.reqMyList(1);
+			return VideoService.reqMyList(1, $scope.itemsPerPage);
 		}).then(function(videos) {
 			$scope.videos = videos;
 			$scope.isLoading = false;
@@ -83,11 +82,10 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 		};
 
 		$scope.pageChanged = function() {
-			var deferred = VideoService.reqMyList($scope.currentPage);
 			$scope.videos = [];
 			$scope.isLoading = true;
 
-			deferred.then(function(videos) {
+			VideoService.reqMyList($scope.currentPage, $scope.itemsPerPage).then(function(videos) {
 				$scope.videos = videos;
 				$scope.isLoading = false;
 			});
@@ -150,7 +148,7 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 		VideoService.reqContributorVideosCount(contributorId).then(function(count) {
 			$scope.totalItems = count;
 		}).then(function() {
-			return VideoService.reqContributorList(1, contributorId);
+			return VideoService.reqContributorList(1, $scope.itemsPerPage, contributorId);
 		}).then(function(videos) {
 			$scope.videos = videos;
 			$scope.isLoading = false;
@@ -167,10 +165,9 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 		};
 
 		$scope.pageChanged = function() {
-			var deferred = VideoService.reqContributorList($scope.currentPage);
 			$scope.isLoading = true;
 
-			deferred.then(function(videos) {
+			VideoService.reqContributorList($scope.currentPage, $scope.itemsPerPage, contributorId).then(function(videos) {
 				$scope.videos = videos;
 				$scope.isLoading = false;
 			});

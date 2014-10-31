@@ -1,11 +1,11 @@
 angular.module('videosApp').
 	factory('VideoService', [ '$http', '$q', function ($http, $q) {
 		return {
-			reqList: function(pageNo) {
+			reqList: function(pageNo, perpage) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/videos/list/?page=' + pageNo
+					url    : '/api/videos/list/?page=' + pageNo + '&perpage=' + perpage
 				}).success(function(data) {
 					deferred.resolve(data)
 				}).error(function() {
@@ -27,11 +27,11 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			reqMyList: function(pageNo) {
+			reqMyList: function(pageNo, perpage) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/my/videos/list/?page=' + pageNo
+					url    : '/api/my/videos/list/?page=' + pageNo + '&perpage=' + perpage
 				}).success(function(data) {
 					deferred.resolve(data);
 				}).error(function() {
@@ -40,11 +40,11 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			reqContributorList: function(pageNo, contributorId) {
+			reqContributorList: function(pageNo, perpage, contributorId) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/contributors/' + contributorId + '/videos/list/?page=' + pageNo
+					url    : '/api/contributors/' + contributorId + '/videos/list/?page=' + pageNo + '&perpage=' + perpage
 				}).success(function(data) {
 					deferred.resolve(data);
 				}).error(function() {

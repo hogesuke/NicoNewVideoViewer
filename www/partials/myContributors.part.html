@@ -17,14 +17,22 @@
 			</div>
 		</div>
 	</form>
-	<div>
+	<div id="contributors-list">
 		<div>Fav Users</div>
-		<hr style="margin: 5px 0;">
+		<hr style="margin: 10px 0;">
 		<div class="contributor-block" ng-repeat="contributor in contributors">
 			<div class="name-block">
-				<a class="name" style="background-image: url({{ contributor.icon_url }});" ng-click="addTab(contributor.id, contributor.name, './partials/contributorVideoList.part.html', contributor.id)">{{ contributor.name }}</a>
+				<a class="name" style="background-image: url({{ contributor.icon_url }});"
+				   ng-click="addTab(contributor.id, contributor.name,
+				   './partials/contributorVideoList.part.html', contributor.id)">{{ contributor.name }}</a>
 			</div>
 			<button class="remove-btn btn btn-default btn-xs" ng-click="delete(contributor.id)"><span class="glyphicon glyphicon-trash"></span></button>
+		</div>
+		<div class="loading-img" ng-class="{'enabled': isLoading === true, 'disabled': isLoading === false}"></div>
+		<div class="pagination-block">
+			<pagination class="pagination-sm" total-items="totalItems" items-per-page="itemsPerPage"
+						max-size="maxSize"ng-model="currentPage" ng-change="pageChanged()"
+						previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
 		</div>
 	</div>
 </div>

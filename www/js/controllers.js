@@ -99,10 +99,30 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 
 stockVideosControllers.controller('MyContributorController', ['$scope', 'ContributorService', 'TabService',
 	function($scope, ContributorService, TabService) {
-		var deferred = ContributorService.reqMyList();
-		deferred.then(function(data) {
-			$scope.contributors = data;
+		$scope.totalItems = 0;
+		$scope.itemsPerPage = 20;
+		$scope.currentPage = 1;
+		$scope.maxSize = 3;
+		$scope.isLoading = true;
+
+		ContributorService.reqCount().then(function(count) {
+			$scope.totalItems = count;
+		}).then(function() {
+			return ContributorService.reqMyList(1, $scope.itemsPerPage);
+		}).then(function(contributors) {
+			$scope.isLoading = false;
+			$scope.contributors = contributors;
 		});
+
+		$scope.pageChanged = function() {
+			$scope.contributors = [];
+			$scope.isLoading = true;
+
+			ContributorService.reqMyList($scope.currentPage, $scope.itemsPerPage).then(function(contributors) {
+				$scope.contributors = contributors;
+				$scope.isLoading = false;
+			});
+		};
 
 		$scope.delete = ContributorService.delete;
 

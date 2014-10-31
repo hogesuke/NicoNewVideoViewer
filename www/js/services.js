@@ -113,13 +113,26 @@ angular.module('videosApp').
 	}]).
 	factory('ContributorService', [ '$http', '$q', function ($http, $q) {
 		return {
-			reqMyList: function() {
+			reqMyList: function(pageNo, perpage) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/my/contributors/'
+					url    : '/api/my/contributors/?page=' + pageNo + '&perpage=' + perpage
 				}).success(function(data) {
 					deferred.resolve(data);
+				}).error(function() {
+					// TODO
+					deferred.reject();
+				});
+				return deferred.promise;
+			},
+			reqCount: function() {
+				var deferred = $q.defer();
+				$http({
+					method : 'get',
+					url    : '/api/my/contributors/count/'
+				}).success(function(data) {
+					deferred.resolve(data.count);
 				}).error(function() {
 					// TODO
 					deferred.reject();

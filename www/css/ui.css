@@ -23,18 +23,18 @@ body {
 	position: relative;
 }
 
-.video-loading-img {
+.loading-img {
 	width: 100%;
 	height: 100px;
 	background: url(../img/loading.gif) no-repeat center;
 	background-size: 32px 32px;
 }
 
-.video-loading-img.enabled {
+.loading-img.enabled {
 	display: block;
 }
 
-.video-loading-img.disabled {
+.loading-img.disabled {
 	display: none;
 }
 
@@ -67,17 +67,22 @@ body {
 	margin: 3px;
 }
 
-.contributor-block {
+#contributors-list .pagination-block {
+	width: 140px;
+	margin: 0 auto;
+}
+
+#contributors-list .contributor-block {
 	clear: both;
 	margin: 3px 0;
 }
 
-.contributor-block .name-block {
+#contributors-list .contributor-block .name-block {
 	width: 83%;
 	float: left;
 }
 
-.contributor-block .name-block .name {
+#contributors-list .contributor-block .name-block .name {
 	width: 95%;
 	padding-left: 30px;
 	float: left;

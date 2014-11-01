@@ -1,0 +1,7 @@
+<div ng-controller="VideoListTabsController">
+	<tabset>
+		<tab ng-repeat="tab in tabs" heading="{{ tab.name }}" active="tab.active">
+			<div class="tab-pane" id="{{ tab.id }}" ng-include="tab.partial"></div>
+		</tab>
+	</tabset>
+</div>

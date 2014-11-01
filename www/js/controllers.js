@@ -1,16 +1,18 @@
 var stockVideosControllers = angular.module('stockVideosControllers', ['ui.bootstrap']);
 
-stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService',
-	function($scope, VideoService) {
+stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService', 'AlertService',
+	function($scope, VideoService, AlertService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
+		$scope.alerts = [];
 
 		VideoService.reqVideosCount().then(function (count) {
 			$scope.totalItems = count;
 		}, function() {
 			$scope.isLoading = false;
+			AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			return $.Deferred().reject().promise();
 		}).then(function() {
 			return VideoService.reqList(1, $scope.itemsPerPage);
@@ -40,6 +42,8 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 		};
 
 		$scope.formatPostDatetime = VideoService.formatPostDatetime;
+
+		$scope.closeAlert = AlertService.closeAlert;
 	}
 ]);
 
@@ -58,17 +62,19 @@ stockVideosControllers.controller('VideoDetailController', ['$scope', '$routePar
 	}
 ]);
 
-stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService',
-	function($scope, VideoService) {
+stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService', 'AlertService',
+	function($scope, VideoService, AlertService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
+		$scope.alerts = [];
 
 		VideoService.reqMyVideosCount().then(function(count) {
 			$scope.totalItems = count;
 		}, function() {
 			$scope.isLoading = false;
+			AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			return $.Deferred().reject().promise();
 		}).then(function() {
 			return VideoService.reqMyList(1, $scope.itemsPerPage);
@@ -98,21 +104,25 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 		};
 
 		$scope.formatPostDatetime = VideoService.formatPostDatetime;
+
+		$scope.closeAlert = AlertService.closeAlert;
 	}
 ]);
 
-stockVideosControllers.controller('MyContributorController', ['$scope', 'ContributorService', 'TabService',
-	function($scope, ContributorService, TabService) {
+stockVideosControllers.controller('MyContributorController', ['$scope', 'ContributorService', 'TabService', 'AlertService',
+	function($scope, ContributorService, TabService, AlertService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.maxSize = 3;
 		$scope.isLoading = true;
+		$scope.alerts = [];
 
 		ContributorService.reqCount().then(function(count) {
 			$scope.totalItems = count;
 		}, function() {
 			$scope.isLoading = false;
+			AlertService.addAlert($scope.alerts, 'お気に入りユーザーを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			return $.Deferred().reject().promise();
 		}).then(function() {
 			return ContributorService.reqMyList(1, $scope.itemsPerPage);
@@ -143,21 +153,25 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 				$scope.contributors = contributors;
 			});
 		};
+
+		$scope.closeAlert = AlertService.closeAlert;
 	}
 ]);
 
-stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService',
-	function($scope, VideoService, TabService) {
+stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService',
+	function($scope, VideoService, TabService, AlertService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
+		$scope.alerts = [];
 		var contributorId = TabService.getContributorId();
 
 		VideoService.reqContributorVideosCount(contributorId).then(function(count) {
 			$scope.totalItems = count;
 		}, function() {
 			$scope.isLoading = false;
+			AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			return $.Deferred().reject().promise();
 		}).then(function() {
 			return VideoService.reqContributorList(1, $scope.itemsPerPage, contributorId);
@@ -186,5 +200,7 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 		};
 
 		$scope.formatPostDatetime = VideoService.formatPostDatetime;
+
+		$scope.closeAlert = AlertService.closeAlert;
 	}
 ]);

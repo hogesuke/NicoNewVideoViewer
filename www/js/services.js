@@ -188,4 +188,14 @@ angular.module('videosApp').
 				return this.tabs[this.tabs.length - 1].contributor_id;
 			}
 		};
+	}]).
+	factory('AlertService', [function() {
+		return {
+			addAlert: function (alerts, msg, type) {
+				alerts.push({msg: msg, type: type});
+			},
+			closeAlert: function (alerts, index) {
+				alerts.splice(index, 1);
+			}
+		}
 	}]);

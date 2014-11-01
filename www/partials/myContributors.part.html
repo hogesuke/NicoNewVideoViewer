@@ -20,6 +20,7 @@
 	<div id="contributors-list">
 		<div>Fav Users</div>
 		<hr style="margin: 10px 0;">
+		<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
 		<div class="contributor-block" ng-repeat="contributor in contributors">
 			<div class="name-block">
 				<a class="name" style="background-image: url({{ contributor.icon_url }});"

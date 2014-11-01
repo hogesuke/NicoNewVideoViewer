@@ -7,8 +7,11 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
 
-		VideoService.reqVideosCount().then(function(count) {
+		VideoService.reqVideosCount().then(function (count) {
 			$scope.totalItems = count;
+		}, function() {
+			$scope.isLoading = false;
+			return $.Deferred().reject().promise();
 		}).then(function() {
 			return VideoService.reqList(1, $scope.itemsPerPage);
 		}).then(function(videos) {
@@ -64,6 +67,9 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 
 		VideoService.reqMyVideosCount().then(function(count) {
 			$scope.totalItems = count;
+		}, function() {
+			$scope.isLoading = false;
+			return $.Deferred().reject().promise();
 		}).then(function() {
 			return VideoService.reqMyList(1, $scope.itemsPerPage);
 		}).then(function(videos) {
@@ -105,6 +111,9 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 
 		ContributorService.reqCount().then(function(count) {
 			$scope.totalItems = count;
+		}, function() {
+			$scope.isLoading = false;
+			return $.Deferred().reject().promise();
 		}).then(function() {
 			return ContributorService.reqMyList(1, $scope.itemsPerPage);
 		}).then(function(contributors) {
@@ -147,6 +156,9 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 
 		VideoService.reqContributorVideosCount(contributorId).then(function(count) {
 			$scope.totalItems = count;
+		}, function() {
+			$scope.isLoading = false;
+			return $.Deferred().reject().promise();
 		}).then(function() {
 			return VideoService.reqContributorList(1, $scope.itemsPerPage, contributorId);
 		}).then(function(videos) {

@@ -1,2 +1,7 @@
-<div ng-controller="VideoListController" ng-include="'./partials/videoList.part.html'">
+<div ng-controller="VideoListController">
+	<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
+	<pager ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Newer" next-text="Older »"></pager>
+	<div class="loading-img" ng-class="{'enabled': isLoading === true, 'disabled': isLoading === false}"></div>
+	<div ng-include="'./partials/videoList.part.html'"></div>
+	<pager ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Newer" next-text="Older »"></pager>
 </div>

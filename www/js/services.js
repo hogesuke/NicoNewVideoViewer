@@ -6,8 +6,8 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/videos/list/?page=' + pageNo + '&perpage=' + perpage
-				}).success(function(data) {
-					deferred.resolve(data)
+				}).success(function(res) {
+					deferred.resolve(res)
 				}).error(function() {
 					// TODO
 					deferred.reject();
@@ -19,8 +19,8 @@ angular.module('videosApp').
 				$http({
 					method: 'get',
 					url: '/api/videos/' + videoId
-				}).success(function (data) {
-					deferred.resolve(data);
+				}).success(function (res) {
+					deferred.resolve(res);
 				}).error(function () {
 					// TODO
 					deferred.reject({});
@@ -32,8 +32,8 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/my/videos/list/?page=' + pageNo + '&perpage=' + perpage
-				}).success(function(data) {
-					deferred.resolve(data);
+				}).success(function(res) {
+					deferred.resolve(res);
 				}).error(function() {
 					// TODO
 					deferred.reject({});
@@ -45,8 +45,8 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/contributors/' + contributorId + '/videos/list/?page=' + pageNo + '&perpage=' + perpage
-				}).success(function(data) {
-					deferred.resolve(data);
+				}).success(function(res) {
+					deferred.resolve(res);
 				}).error(function() {
 					// TODO
 					deferred.reject({});
@@ -58,8 +58,8 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/videos/count/'
-				}).success(function(data) {
-					deferred.resolve(data.count);
+				}).success(function(res) {
+					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
 					deferred.reject({});
@@ -71,8 +71,8 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/my/videos/count/'
-				}).success(function(data) {
-					deferred.resolve(data.count);
+				}).success(function(res) {
+					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
 					deferred.reject({});
@@ -84,8 +84,8 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/contributors/' + contributorId + '/videos/count/'
-				}).success(function(data) {
-					deferred.resolve(data.count);
+				}).success(function(res) {
+					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
 					deferred.reject({});
@@ -118,8 +118,8 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/my/contributors/?page=' + pageNo + '&perpage=' + perpage
-				}).success(function(data) {
-					deferred.resolve(data);
+				}).success(function(res) {
+					deferred.resolve(res);
 				}).error(function() {
 					// TODO
 					deferred.reject();
@@ -131,8 +131,8 @@ angular.module('videosApp').
 				$http({
 					method : 'get',
 					url    : '/api/my/contributors/count/'
-				}).success(function(data) {
-					deferred.resolve(data.count);
+				}).success(function(res) {
+					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
 					deferred.reject();
@@ -145,8 +145,8 @@ angular.module('videosApp').
 					method : 'post',
 					url    : '/api/my/contributors/',
 					data   : {id: contributor_id}
-				}).success(function(data) {
-					deferred.resolve(data);
+				}).success(function(res) {
+					deferred.resolve(res);
 				}).error(function() {
 					// TODO
 					deferred.reject();
@@ -159,8 +159,8 @@ angular.module('videosApp').
 					method : 'delete',
 					url    : '/api/my/contributors/',
 					data   : {id: contributor_id}
-				}).success(function(data) {
-					deferred.resolve(data);
+				}).success(function(res) {
+					deferred.resolve(res);
 				}).error(function() {
 					// TODO
 					deferred.reject();
@@ -196,6 +196,44 @@ angular.module('videosApp').
 			},
 			closeAlert: function (alerts, index) {
 				alerts.splice(index, 1);
+			}
+		}
+	}]).
+	factory('AuthorizeService', [ '$http', '$q', function ($http, $q) {
+		return {
+			reqAuthorizeStatus: function () {
+				var deferred = $q.defer();
+				$http({
+					method : 'get',
+					url    : '/api/authorize/status/'
+				}).success(function() {
+					deferred.resolve()
+				}).error(function() {
+					deferred.reject();
+				});
+				return deferred.promise;
+			},
+			reqAuthorizeUrl: function () {
+				var deferred = $q.defer();
+				$http({
+					method : 'get',
+					url    : '/api/authorize/'
+				}).success(function(res) {
+					console.debug(res);
+					deferred.resolve(res.authorize_url)
+				}).error(function() {
+					deferred.reject();
+				});
+				return deferred.promise;
+			},
+			login: function() {
+				var deferred = $q.defer();
+				this.reqAuthorizeUrl().then(function(authorize_url) {
+					window.location = authorize_url;
+				}, function() {
+					deferred.reject();
+				});
+				return deferred.promise;
 			}
 		}
 	}]);

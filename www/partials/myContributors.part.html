@@ -1,4 +1,8 @@
 <div ng-controller="MyContributorController">
+	<div ng-show="isUnAuthorized" style="background-color: red;">
+		<span>未ログインです</span>
+		<button ng-click="login()">LOGIN</button>
+	</div>
 	<form novalidate name="addContributor" class="form-horizontal" ng-submit="submit(contributor)">
 		<div class="form-group">
 			<label class="col-sm-2">ID</label>

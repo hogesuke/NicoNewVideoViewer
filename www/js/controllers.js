@@ -109,26 +109,39 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 	}
 ]);
 
-stockVideosControllers.controller('MyContributorController', ['$scope', 'ContributorService', 'TabService', 'AlertService',
-	function($scope, ContributorService, TabService, AlertService) {
+stockVideosControllers.controller('MyContributorController', ['$scope', 'ContributorService', 'TabService', 'AlertService', 'AuthorizeService',
+	function($scope, ContributorService, TabService, AlertService, AuthorizeService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.maxSize = 3;
 		$scope.isLoading = true;
+		$scope.isUnAuthorized = false;
 		$scope.alerts = [];
 
-		ContributorService.reqCount().then(function(count) {
+		AuthorizeService.reqAuthorizeStatus().then(function() {
+			// NOP
+		}, function() {
+			$scope.isUnAuthorized = true;
+			return $.Deferred().reject().promise();
+		}).then(ContributorService.reqCount).then(function(count) {
 			$scope.totalItems = count;
 		}, function() {
 			$scope.isLoading = false;
-			AlertService.addAlert($scope.alerts, 'お気に入りユーザーを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
+			if ($scope.isAuthorized) {
+				AlertService.addAlert($scope.alerts, 'お気に入りユーザーを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
+			}
 			return $.Deferred().reject().promise();
 		}).then(function() {
 			return ContributorService.reqMyList(1, $scope.itemsPerPage);
 		}).then(function(contributors) {
 			$scope.isLoading = false;
 			$scope.contributors = contributors;
+		}, function() {
+			$scope.isLoading = false;
+			if ($scope.isAuthorized) {
+				AlertService.addAlert($scope.alerts, 'お気に入りユーザーを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
+			}
 		});
 
 		$scope.pageChanged = function() {
@@ -155,6 +168,14 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		};
 
 		$scope.closeAlert = AlertService.closeAlert;
+
+		$scope.login = function() {
+			AuthorizeService.login().then(function() {
+				// NOP
+			}, function() {
+				$scope.addAlert($scope.alerts, 'ログインに失敗しました。', 'danger');
+			});
+		}
 	}
 ]);
 

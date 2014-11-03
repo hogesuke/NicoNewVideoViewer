@@ -10,15 +10,14 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 
 		VideoService.reqVideosCount().then(function (count) {
 			$scope.totalItems = count;
-		}, function() {
-			$scope.isLoading = false;
-			AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
-			return $.Deferred().reject().promise();
 		}).then(function() {
 			return VideoService.reqList(1, $scope.itemsPerPage);
 		}).then(function(videos) {
 			$scope.videos = videos;
 			$scope.isLoading = false;
+		}, function() {
+			$scope.isLoading = false;
+			AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 		});
 
 		$scope.watched = function(videoIndex) {
@@ -62,25 +61,34 @@ stockVideosControllers.controller('VideoDetailController', ['$scope', '$routePar
 	}
 ]);
 
-stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService', 'AlertService',
-	function($scope, VideoService, AlertService) {
+stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService', 'AlertService', 'AuthorizeService',
+	function($scope, VideoService, AlertService, AuthorizeService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
+		$scope.isUnAuthorized = false;
 		$scope.alerts = [];
 
-		VideoService.reqMyVideosCount().then(function(count) {
-			$scope.totalItems = count;
+		AuthorizeService.reqAuthorizeStatus().then(function() {
+			// NOP
 		}, function() {
-			$scope.isLoading = false;
-			AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
+			$scope.isUnAuthorized = true;
 			return $.Deferred().reject().promise();
+		}).then(VideoService.reqMyVideosCount).then(function(count) {
+			$scope.totalItems = count;
 		}).then(function() {
 			return VideoService.reqMyList(1, $scope.itemsPerPage);
 		}).then(function(videos) {
 			$scope.videos = videos;
 			$scope.isLoading = false;
+		}, function() {
+			$scope.isLoading = false;
+			if ($scope.isUnAuthorized) {
+				AlertService.addAlert($scope.alerts, 'ログインするとマイビデオリストをご利用になれます。', 'info');
+			} else {
+				AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
+			}
 		});
 
 		$scope.watched = function(videoIndex) {
@@ -126,12 +134,6 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 			return $.Deferred().reject().promise();
 		}).then(ContributorService.reqCount).then(function(count) {
 			$scope.totalItems = count;
-		}, function() {
-			$scope.isLoading = false;
-			if ($scope.isAuthorized) {
-				AlertService.addAlert($scope.alerts, 'お気に入りユーザーを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
-			}
-			return $.Deferred().reject().promise();
 		}).then(function() {
 			return ContributorService.reqMyList(1, $scope.itemsPerPage);
 		}).then(function(contributors) {
@@ -139,7 +141,7 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 			$scope.contributors = contributors;
 		}, function() {
 			$scope.isLoading = false;
-			if ($scope.isAuthorized) {
+			if (!$scope.isUnAuthorized) {
 				AlertService.addAlert($scope.alerts, 'お気に入りユーザーを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			}
 		});

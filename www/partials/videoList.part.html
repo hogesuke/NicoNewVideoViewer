@@ -5,7 +5,7 @@
 		<div class="footer">
 			<div class="post-datetime">{{ formatPostDatetime(video.post_datetime) }}</div>
 			<div class="tools">
-				<button class="btn btn-xs" ng-class="{'btn-success': video.watched == 'true', 'btn-default': video.watched == 'false'}" ng-click="watched($index)">
+				<button class="btn btn-xs" ng-class="{'hide': !video.watched, 'btn-success': video.watched == 'true', 'btn-default': video.watched == 'false'}" ng-click="watched($index)">
 					<span class="glyphicon glyphicon-ok"></span> watched
 				</button>
 			</div>

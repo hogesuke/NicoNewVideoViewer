@@ -13,6 +13,10 @@ body {
 }
 /* <- Bootstrap style override */
 
+.hide {
+	display: none;
+}
+
 .video-block {
 	padding: 8px;
 	clear: both;

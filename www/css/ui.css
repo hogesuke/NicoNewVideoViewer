@@ -3,11 +3,6 @@ body {
 }
 
 /* Bootstrap style override -> */
-.btn-default {
-	background-image: none;
-	box-shadow: none;
-}
-
 .alert {
 	margin: 10px 0;
 }

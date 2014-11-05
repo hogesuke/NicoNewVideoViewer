@@ -1,15 +1,16 @@
-<div class="video-block" ng-repeat="video in videos">
-	<div class="video-info" style="background-image: url({{ video.thumbnail_url }});">
-		<div class="contributor"><img class="contributor-thumbnail" src="{{ video.icon_url }}">{{ video.contributor_name }}</div>
-		<div class="title"><a href="http://www.nicovideo.jp/watch/sm{{ video.id }}" target="_blank">{{ video.title }}</a></div>
-		<div class="footer">
-			<div class="post-datetime">{{ formatPostDatetime(video.post_datetime) }}</div>
-			<div class="tools">
-				<button class="btn btn-xs" ng-class="{'hide': !video.watched, 'btn-success': video.watched == 'true', 'btn-default': video.watched == 'false'}" ng-click="watched($index)">
-					<span class="glyphicon glyphicon-ok"></span> watched
-				</button>
+<div class="video-list" ng-show="0 < videos.length">
+	<div class="video-block" ng-repeat="video in videos">
+		<div class="video-info" style="background-image: url({{ video.thumbnail_url }});">
+			<div class="contributor"><img class="contributor-thumbnail" src="{{ video.icon_url }}">{{ video.contributor_name }}</div>
+			<div class="title"><a href="http://www.nicovideo.jp/watch/sm{{ video.id }}" target="_blank">{{ video.title }}</a></div>
+			<div class="footer">
+				<div class="post-datetime">{{ formatPostDatetime(video.post_datetime) }}</div>
+				<div class="tools">
+					<button class="btn btn-xs" ng-class="{'hide': !video.watched, 'btn-success': video.watched == 'true', 'btn-default': video.watched == 'false'}" ng-click="watched($index)">
+						<span class="glyphicon glyphicon-ok"></span> watched
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-

@@ -20,7 +20,6 @@ body {
 .video-list {
 	padding: 20px 30px;
 	border: solid 1px lightgray;
-	border-radius: 15px;
 }
 
 .video-block {
@@ -83,6 +82,23 @@ body {
 	width: 24px;
 	height: 24px;
 	margin: 3px;
+}
+
+#add-contributor-block .caption {
+	padding: 8px 17px;
+	border-top: solid 1px #428BCA;
+	border-left: solid 1px #428BCA;
+	border-right: solid 1px #428BCA;
+	background-color: #428BCA;
+	color: #ffffff;
+}
+
+#add-contributor-block .form {
+	margin-bottom: 20px;
+	padding: 17px 20px 2px 20px;
+	border-bottom: solid 1px lightgray;
+	border-left: solid 1px lightgray;
+	border-right: solid 1px lightgray;
 }
 
 #contributors-list .pagination-block {

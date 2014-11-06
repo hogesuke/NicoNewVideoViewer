@@ -1,8 +1,5 @@
 <div ng-controller="MyContributorController">
-	<div ng-show="isUnAuthorized" style="background-color: red;">
-		<span>未ログインです</span>
-		<button ng-click="login()">LOGIN</button>
-	</div>
+	<button id="login-button" ng-show="isUnAuthorized" ng-click="login()">Twitterでログイン</button>
 	<div id="add-contributor-block">
 		<div class="caption">お気に入りユーザーの追加</div>
 		<form novalidate name="addContributor" class="form form-horizontal" ng-submit="submit(contributor)">

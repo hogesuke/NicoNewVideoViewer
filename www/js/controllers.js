@@ -122,7 +122,6 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
-		$scope.maxSize = 3;
 		$scope.isLoading = true;
 		$scope.isUnAuthorized = false;
 		$scope.alerts = [];

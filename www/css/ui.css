@@ -60,7 +60,14 @@ body {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+.video-block .video-info .title, .contributor {
+	margin-bottom: 5px;
 	font-size: 13px;
+}
+
+.video-block .video-info .title {
+	font-size: 14px;
 }
 
 .video-block .video-info .footer {
@@ -112,7 +119,9 @@ body {
 	padding: 8px 17px;
 	border-style: solid;
 	border-width: 1px 1px 1px 1px;
-	border-color: lightgray;
+	border-color: lightgray lightgray #cca2a3 lightgray;
+	/*background-color: #ad545c;*/
+	/*color: #ffffff;*/
 }
 
 #add-contributor-block .form {

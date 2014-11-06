@@ -172,8 +172,8 @@ angular.module('videosApp').
 	factory('TabService', [function() {
 		return {
 			tabs: [
-				{ id: 'my', name: 'My', partial: './partials/myVideoList.part.html', contributor_id: '' },
-				{ id: 'all', name: 'All', partial: './partials/newVideoList.part.html', contributor_id: '' }
+				{ id: 'my', name: 'マイ新着動画', partial: './partials/myVideoList.part.html', contributor_id: '' },
+				{ id: 'all', name: 'すべての新着動画', partial: './partials/newVideoList.part.html', contributor_id: '' }
 			],
 			getTabs: function () {
 				return this.tabs;

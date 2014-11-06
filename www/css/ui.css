@@ -72,6 +72,8 @@ body {
 }
 
 .video-block .video-info .footer .post-datetime {
+	position: absolute;
+	bottom: 0px;
 	float: left;
 	font-size: 12px;
 	color: #8f8f8f;
@@ -106,7 +108,7 @@ body {
 	background-color: #55bbfd;
 }
 
-#add-contributor-block .caption {
+.caption {
 	padding: 8px 17px;
 	border-style: solid;
 	border-width: 1px 1px 1px 1px;
@@ -119,13 +121,6 @@ body {
 	border-bottom: solid 1px lightgray;
 	border-left: solid 1px lightgray;
 	border-right: solid 1px lightgray;
-}
-
-#contributors-block .caption {
-	padding: 8px 17px;
-	border-style: solid;
-	border-width: 1px 1px 1px 1px;
-	border-color: lightgray;
 }
 
 #contributors-block .contributors-list {

@@ -6,6 +6,14 @@ body {
 .alert {
 	margin: 10px 0;
 }
+
+#header {
+	background-color: #294C6A;
+}
+
+#header .navbar-brand {
+	color: #ffffff;
+}
 /* <- Bootstrap style override */
 
 .hide {

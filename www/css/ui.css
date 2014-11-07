@@ -20,6 +20,21 @@ body {
 	display: none;
 }
 
+.loading-img {
+	width: 100%;
+	height: 100px;
+	background: url(../img/loading.gif) no-repeat center;
+	background-size: 32px 32px;
+}
+
+.loading-img.enabled {
+	display: block;
+}
+
+.loading-img.disabled {
+	display: none;
+}
+
 .video-list {
 	padding: 20px 30px;
 	border: solid 1px lightgray;
@@ -41,19 +56,8 @@ body {
 	position: relative;
 }
 
-.loading-img {
-	width: 100%;
-	height: 100px;
-	background: url(../img/loading.gif) no-repeat center;
-	background-size: 32px 32px;
-}
-
-.loading-img.enabled {
-	display: block;
-}
-
-.loading-img.disabled {
-	display: none;
+.video-block .video-info .watched-btn.btn-default {
+	color: #8f8f8f;
 }
 
 .video-block .video-info .title, .contributor {

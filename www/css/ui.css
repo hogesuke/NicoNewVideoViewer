@@ -27,11 +27,20 @@ body {
 	background-size: 32px 32px;
 }
 
-.loading-img.enabled {
+.adding-img {
+	float: right;
+	width: 24px;
+	height: 24px;
+	margin: 8px 4px 0 0;
+	background: url(../img/loading.gif) no-repeat center;
+	background-size: 24px 24px;
+}
+
+.loading-img.enabled, .adding-img.enabled {
 	display: block;
 }
 
-.loading-img.disabled {
+.loading-img.disabled, .adding-img.disabled {
 	display: none;
 }
 

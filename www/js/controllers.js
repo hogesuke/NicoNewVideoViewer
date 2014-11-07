@@ -136,8 +136,11 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
+		$scope.isAdding = false;
 		$scope.isUnAuthorized = false;
 		$scope.alerts = [];
+		$scope.formAlerts = [];
+		$scope.loginAlerts = [];
 
 		AuthorizeService.reqAuthorizeStatus().then(function() {
 			// NOP
@@ -188,19 +191,26 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		};
 
 		$scope.submit = function() {
-			var deferred = ContributorService.submit($scope.contributor.id);
-			deferred.then(function(contributors) {
+			$scope.isAdding = true;
+			$scope.formAlerts = [];
+			ContributorService.submit($scope.contributor.id).then(function(contributors) {
+				$scope.isAdding = false;
 				$scope.contributors = contributors;
+			}, function(errMsg) {
+				var errorMessage = errMsg ? errMsg : 'ユーザーの登録に失敗しました。';
+				$scope.isAdding = false;
+				AlertService.addAlert($scope.formAlerts, errorMessage, 'danger');
 			});
 		};
 
 		$scope.closeAlert = AlertService.closeAlert;
 
 		$scope.login = function() {
+			$scope.loginAlerts = [];
 			AuthorizeService.login().then(function() {
 				// NOP
 			}, function() {
-				$scope.addAlert($scope.alerts, 'ログインに失敗しました。', 'danger');
+				AlertService.addAlert($scope.loginAlerts, 'ログインに失敗しました。', 'danger');
 			});
 		}
 	}

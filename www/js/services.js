@@ -147,9 +147,8 @@ angular.module('videosApp').
 					data   : {id: contributor_id}
 				}).success(function(res) {
 					deferred.resolve(res);
-				}).error(function() {
-					// TODO
-					deferred.reject();
+				}).error(function(err) {
+					deferred.reject(err.err_msg);
 				});
 				return deferred.promise;
 			},

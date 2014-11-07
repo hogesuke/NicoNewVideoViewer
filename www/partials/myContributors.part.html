@@ -23,8 +23,8 @@
 		<div id="contributors-block">
 			<div class="caption"><span class="glyphicon glyphicon-star"></span> お気に入りユーザーリスト</div>
 			<div class="contributors-list">
+				<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
 				<div class="contributor-block" ng-repeat="contributor in contributors">
-					<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
 					<div class="name-block">
 						<a class="name" style="background-image: url({{ contributor.icon_url }});"
 						   ng-click="addTab(contributor.id, contributor.name,

@@ -120,7 +120,7 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 stockVideosControllers.controller('MyContributorController', ['$scope', 'ContributorService', 'TabService', 'AlertService', 'AuthorizeService',
 	function($scope, ContributorService, TabService, AlertService, AuthorizeService) {
 		$scope.totalItems = 0;
-		$scope.itemsPerPage = 20;
+		$scope.itemsPerPage = 2;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
 		$scope.isUnAuthorized = false;
@@ -141,7 +141,7 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		}, function() {
 			$scope.isLoading = false;
 			if (!$scope.isUnAuthorized) {
-				AlertService.addAlert($scope.alerts, 'お気に入りユーザーを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
+				AlertService.addAlert($scope.alerts, 'お気に入りユーザーを取得できませんでした。', 'danger');
 			}
 		});
 
@@ -155,7 +155,14 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 			});
 		};
 
-		$scope.delete = ContributorService.delete;
+		$scope.delete = function(contributorId) {
+			ContributorService.delete(contributorId, $scope.itemsPerPage, $scope.currentPage).then(function(contributors) {
+				console.debug(contributors);
+				$scope.contributors = contributors;
+			}, function() {
+				AlertService.addAlert($scope.alerts, 'ユーザーの削除に失敗しました。', 'danger');
+			});
+		}
 
 		$scope.addTab = function(id, name, partial, contributorId) {
 			TabService.addTab(id, name, partial, contributorId);

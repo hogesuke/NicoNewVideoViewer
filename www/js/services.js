@@ -153,12 +153,12 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			delete: function(contributor_id) {
+			delete: function(contributor_id, itemsPerPage, currentPage) {
 				var deferred = $q.defer();
 				$http({
 					method : 'delete',
 					url    : '/api/my/contributors/',
-					data   : {id: contributor_id}
+					data   : {id: contributor_id, items_per_page: itemsPerPage, current_page: currentPage}
 				}).success(function(res) {
 					deferred.resolve(res);
 				}).error(function() {

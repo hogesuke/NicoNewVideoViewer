@@ -36,7 +36,7 @@ body {
 }
 
 .video-list {
-	padding: 20px 30px;
+	padding: 20px 20px;
 	border: solid 1px lightgray;
 }
 
@@ -65,13 +65,15 @@ body {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-.video-block .video-info .title, .contributor {
+
+.video-block .video-info .contributor {
 	margin-bottom: 5px;
 	font-size: 13px;
 }
 
 .video-block .video-info .title {
-	font-size: 14px;
+	margin-bottom: 10px;
+	font-size: 15px;
 }
 
 .video-block .video-info .footer {

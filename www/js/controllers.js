@@ -37,6 +37,10 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 			VideoService.reqList($scope.currentPage, $scope.itemsPerPage).then(function(videos) {
 				$scope.videos = videos;
 				$scope.isLoading = false;
+			}, function() {
+				$scope.isLoading = false;
+				$scope.alerts = [];
+				AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			});
 		};
 
@@ -113,6 +117,10 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 			VideoService.reqMyList($scope.currentPage, $scope.itemsPerPage).then(function(videos) {
 				$scope.videos = videos;
 				$scope.isLoading = false;
+			}, function() {
+				$scope.isLoading = false;
+				$scope.alerts = [];
+				AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			});
 		};
 
@@ -242,6 +250,10 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 			VideoService.reqContributorList($scope.currentPage, $scope.itemsPerPage, contributorId).then(function(videos) {
 				$scope.videos = videos;
 				$scope.isLoading = false;
+			}, function() {
+				$scope.isLoading = false;
+				$scope.alerts = [];
+				AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			});
 		};
 

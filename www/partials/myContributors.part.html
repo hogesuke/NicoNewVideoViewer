@@ -2,6 +2,26 @@
 	<div ng-controller="AuthorizeController">
 		<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
 		<button id="login-button" ng-show="isUnAuthorized" ng-click="login()">Twitterでログイン</button>
+		<div id="login-user-block" ng-controller="UserController" ng-show="user && isUnAuthorized !== undefined && !isUnAuthorized">
+			<div ng-if="user">
+				<div class="icon">
+					<img src="http://twiticon.herokuapp.com/{{user.raw_name}}/bigger">
+				</div>
+				<div class="name">
+					{{user.name}}
+				</div>
+				<div class="counter">
+					<div class="count-block contributor-count">
+						<div class="count-caption">Fav Users</div>
+						<div class="count">{{user.contributor_count}}</div>
+					</div>
+					<div class="count-block comp-count">
+						<div class="count-caption">Watched</div>
+						<div class="count">{{user.comp_count}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div id="add-contributor-block">
 		<div class="caption"><span class="glyphicon glyphicon-plus"></span> お気に入りユーザーの追加</div>

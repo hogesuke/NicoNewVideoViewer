@@ -1,6 +1,8 @@
 <div ng-controller="MyContributorController">
-	<alert ng-repeat="alert in loginAlerts" type="{{ alert.type }}" close="closeAlert(loginAlerts, $index)">{{ alert.msg }}</alert>
-	<button id="login-button" ng-show="isUnAuthorized" ng-click="login()">Twitterでログイン</button>
+	<div ng-controller="AuthorizeController">
+		<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
+		<button id="login-button" ng-show="isUnAuthorized" ng-click="login()">Twitterでログイン</button>
+	</div>
 	<div id="add-contributor-block">
 		<div class="caption"><span class="glyphicon glyphicon-plus"></span> お気に入りユーザーの追加</div>
 		<form novalidate name="addContributor" class="form form-horizontal" ng-submit="submit(contributor)">

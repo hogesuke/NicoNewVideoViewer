@@ -4,6 +4,10 @@ body {
 }
 
 /* Bootstrap style override -> */
+.nav, .pagination, .carousel, .panel-title a {
+	cursor: pointer;
+}
+
 .alert {
 	margin: 10px 0;
 }
@@ -12,7 +16,7 @@ body {
 	background-color: #294C6A;
 }
 
-#header .navbar-brand {
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
 	color: #ffffff;
 }
 /* <- Bootstrap style override */

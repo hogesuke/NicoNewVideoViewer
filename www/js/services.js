@@ -59,7 +59,6 @@ angular.module('videosApp').
 					method : 'get',
 					url    : '/api/videos/count/' + '?unwatch_only=' + unwatchOnly
 				}).success(function(res) {
-					console.info('all count : ' + res.count);
 					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
@@ -73,7 +72,6 @@ angular.module('videosApp').
 					method : 'get',
 					url    : '/api/my/videos/count/' + '?unwatch_only=' + unwatchOnly
 				}).success(function(res) {
-					console.info('my count : ' + res.count);
 					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
@@ -87,7 +85,6 @@ angular.module('videosApp').
 					method : 'get',
 					url    : '/api/contributors/' + contributorId + '/videos/count/' + '?unwatch_only=' + unwatchOnly
 				}).success(function(res) {
-					console.info('contributor count : ' + res.count);
 					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
@@ -225,10 +222,9 @@ angular.module('videosApp').
 			reqAuthorizeUrl: function () {
 				var deferred = $q.defer();
 				$http({
-					method : 'get',
+					method : 'post',
 					url    : '/api/authorize/'
 				}).success(function(res) {
-					console.debug(res);
 					deferred.resolve(res.authorize_url)
 				}).error(function() {
 					deferred.reject();
@@ -240,6 +236,18 @@ angular.module('videosApp').
 				this.reqAuthorizeUrl().then(function(authorize_url) {
 					window.location = authorize_url;
 				}, function() {
+					deferred.reject();
+				});
+				return deferred.promise;
+			},
+			logout: function() {
+				var deferred = $q.defer();
+				$http({
+					method : 'post',
+					url    : '/api/logout/'
+				}).success(function() {
+					deferred.resolve();
+				}).error(function() {
 					deferred.reject();
 				});
 				return deferred.promise;

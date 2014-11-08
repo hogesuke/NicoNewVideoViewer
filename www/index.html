@@ -19,6 +19,11 @@
 <nav id="header" class="navbar navbar-inverse navbar-static-top">
 	<div class="container">
 		<a class="navbar-brand" href="#">NicoTune</a>
+		<ul class="nav navbar-nav navbar-right">
+			<li ng-controller="AuthorizeController" ng-show="isUnAuthorized !== undefined && !isUnAuthorized">
+				<a ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> ログアウト</a>
+			</li>
+		</ul>
 	</div>
 </nav>
 <div class="container" ng-view></div>

@@ -170,7 +170,6 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		$scope.isUnAuthorized = false;
 		$scope.alerts = [];
 		$scope.formAlerts = [];
-		$scope.loginAlerts = [];
 
 		AuthorizeService.reqAuthorizeStatus().then(function() {
 			// NOP
@@ -234,17 +233,38 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		};
 
 		$scope.closeAlert = AlertService.closeAlert;
+	}
+]);
+
+stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertService', 'AuthorizeService',
+	function($scope, AlertService, AuthorizeService) {
+		$scope.isUnAuthorized;
+		$scope.alerts = [];
+
+		AuthorizeService.reqAuthorizeStatus().then(function() {
+			$scope.isUnAuthorized = false;
+		}, function() {
+			$scope.isUnAuthorized = true;
+		});
 
 		$scope.login = function() {
-			$scope.loginAlerts = [];
+			$scope.alerts = [];
 			AuthorizeService.login().then(function() {
 				// NOP
 			}, function() {
-				AlertService.addAlert($scope.loginAlerts, 'ログインに失敗しました。', 'danger');
+				AlertService.addAlert($scope.alerts, 'ログインに失敗しました。', 'danger');
 			});
 		}
-	}
-]);
+
+		$scope.logout = function() {
+			$scope.isUnAuthorized = true;
+			AuthorizeService.logout().then(function() {
+				window.location = '/#top';
+			});
+		}
+
+		$scope.closeAlert = AlertService.closeAlert;
+	}]);
 
 stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService',
 	function($scope, VideoService, TabService, AlertService) {

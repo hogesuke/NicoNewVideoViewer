@@ -9,7 +9,6 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res)
 				}).error(function() {
-					// TODO
 					deferred.reject();
 				});
 				return deferred.promise;
@@ -22,7 +21,6 @@ angular.module('videosApp').
 				}).success(function (res) {
 					deferred.resolve(res);
 				}).error(function () {
-					// TODO
 					deferred.reject({});
 				});
 				return deferred.promise;
@@ -35,8 +33,7 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res);
 				}).error(function() {
-					// TODO
-					deferred.reject({});
+					deferred.reject();
 				});
 				return deferred.promise;
 			},
@@ -48,8 +45,7 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res);
 				}).error(function() {
-					// TODO
-					deferred.reject({});
+					deferred.reject();
 				});
 				return deferred.promise;
 			},
@@ -61,8 +57,7 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res.count);
 				}).error(function() {
-					// TODO
-					deferred.reject({});
+					deferred.reject();
 				});
 				return deferred.promise;
 			},
@@ -74,8 +69,7 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res.count);
 				}).error(function() {
-					// TODO
-					deferred.reject({});
+					deferred.reject();
 				});
 				return deferred.promise;
 			},
@@ -87,8 +81,7 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res.count);
 				}).error(function() {
-					// TODO
-					deferred.reject({});
+					deferred.reject();
 				});
 				return deferred.promise;
 			},
@@ -100,8 +93,7 @@ angular.module('videosApp').
 				}).success(function(result) {
 					deferred.resolve(result.isWatched);
 				}).error(function() {
-					// TODO
-					deferred.reject({});
+					deferred.reject();
 				});
 				return deferred.promise;
 			},
@@ -128,7 +120,6 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res);
 				}).error(function() {
-					// TODO
 					deferred.reject();
 				});
 				return deferred.promise;
@@ -141,7 +132,6 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res.count);
 				}).error(function() {
-					// TODO
 					deferred.reject();
 				});
 				return deferred.promise;
@@ -168,7 +158,6 @@ angular.module('videosApp').
 				}).success(function(res) {
 					deferred.resolve(res);
 				}).error(function() {
-					// TODO
 					deferred.reject();
 				});
 				return deferred.promise;

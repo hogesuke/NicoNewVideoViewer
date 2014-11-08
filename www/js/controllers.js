@@ -258,6 +258,7 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
 			AuthorizeService.login().then(function() {
 				// NOP
 			}, function() {
+				$scope.isLoading = false;
 				AlertService.addAlert($scope.alerts, 'ログインに失敗しました。', 'danger');
 			});
 		}

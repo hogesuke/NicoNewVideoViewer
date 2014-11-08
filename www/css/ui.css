@@ -1,6 +1,25 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
 body {
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 25px;
+	padding-top: 3px;
+	border-top: solid 1px lightgray;
+	background-color: #eeeeee;
+	text-align: right;
+	font-size: 14px;
+	color: #757575;
 }
 
 /* Bootstrap style override -> */
@@ -241,6 +260,12 @@ a:hover {
 	background-repeat: no-repeat;
 }
 
+form[name="addContributor"] .error-text {
+	margin-top: 10px;
+	color: #c32728;
+}
+
 form[name="addContributor"] input[name="id"] {
 	width: 100%;
+	padding: 0 5px;
 }

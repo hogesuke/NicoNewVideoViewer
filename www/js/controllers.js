@@ -1,7 +1,7 @@
 var stockVideosControllers = angular.module('stockVideosControllers', ['ui.bootstrap']);
 
-stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService', 'AlertService', 'AuthorizeService',
-	function($scope, VideoService, AlertService, AuthorizeService) {
+stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService', 'AlertService', 'AuthorizeService', 'TabService',
+	function($scope, VideoService, AlertService, AuthorizeService, TabService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
@@ -64,6 +64,10 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 			});
 		};
 
+		$scope.addTab = function(id, name, partial, contributorId) {
+			TabService.addTab(id, name, partial, contributorId);
+		};
+
 		$scope.formatPostDatetime = VideoService.formatPostDatetime;
 
 		$scope.closeAlert = AlertService.closeAlert;
@@ -85,8 +89,8 @@ stockVideosControllers.controller('VideoDetailController', ['$scope', '$routePar
 	}
 ]);
 
-stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService', 'AlertService', 'AuthorizeService',
-	function($scope, VideoService, AlertService, AuthorizeService) {
+stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoService', 'AlertService', 'AuthorizeService', 'TabService',
+	function($scope, VideoService, AlertService, AuthorizeService, TabService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
@@ -158,6 +162,10 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 				$scope.alerts = [];
 				AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			});
+		};
+
+		$scope.addTab = function(id, name, partial, contributorId) {
+			TabService.addTab(id, name, partial, contributorId);
 		};
 
 		$scope.formatPostDatetime = VideoService.formatPostDatetime;
@@ -280,8 +288,8 @@ stockVideosControllers.controller('UserController', ['$scope', 'UserService',
 		});
 	}]);
 
-stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService', 'AuthorizeService',
-	function($scope, VideoService, TabService, AlertService, AuthorizeService) {
+stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService', 'AuthorizeService', 'TabService',
+	function($scope, VideoService, TabService, AlertService, AuthorizeService, TabService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
@@ -350,6 +358,10 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 				$scope.alerts = [];
 				AlertService.addAlert($scope.alerts, 'ビデオリストを取得できませんでした。しばらくしてからリロードしてください。', 'danger');
 			});
+		};
+
+		$scope.addTab = function(id, name, partial, contributorId) {
+			TabService.addTab(id, name, partial, contributorId);
 		};
 
 		$scope.formatPostDatetime = VideoService.formatPostDatetime;

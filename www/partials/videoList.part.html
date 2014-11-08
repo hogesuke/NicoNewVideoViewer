@@ -1,7 +1,11 @@
 <div class="video-list" ng-show="0 < videos.length">
 	<div class="video-block" ng-repeat="video in videos">
 		<div class="video-info" style="background-image: url({{ video.thumbnail_url }});">
-			<div class="contributor"><img class="contributor-thumbnail" src="{{ video.icon_url }}">{{ video.contributor_name }}</div>
+			<div class="contributor">
+				<img class="contributor-thumbnail" src="{{ video.icon_url }}">
+				<a class="name" ng-click="addTab(video.contributor_id, video.contributor_name,
+					'./partials/contributorVideoList.part.html', video.contributor_id)">{{ video.contributor_name }}</a>
+			</div>
 			<div class="title"><a href="http://www.nicovideo.jp/watch/sm{{ video.id }}" target="_blank">{{ video.title }}</a></div>
 			<div class="footer">
 				<div class="post-datetime">{{ formatPostDatetime(video.post_datetime) }}</div>

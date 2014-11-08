@@ -243,7 +243,7 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 
 stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertService', 'AuthorizeService',
 	function($scope, AlertService, AuthorizeService) {
-		$scope.isUnAuthorized;
+		$scope.isLoading = false;
 		$scope.alerts = [];
 
 		AuthorizeService.reqAuthorizeStatus().then(function() {
@@ -253,6 +253,7 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
 		});
 
 		$scope.login = function() {
+			$scope.isLoading = true;
 			$scope.alerts = [];
 			AuthorizeService.login().then(function() {
 				// NOP

@@ -1,7 +1,7 @@
 <div ng-controller="MyContributorController">
 	<div ng-controller="AuthorizeController">
 		<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
-		<button id="login-button" ng-show="isUnAuthorized" ng-click="login()">Twitterでログイン</button>
+		<button id="login-button" ng-show="isUnAuthorized" ng-click="login()" ng-class="{'loading': isLoading}">Twitterでログイン</button>
 		<div id="login-user-block" ng-controller="UserController" ng-show="user && isUnAuthorized !== undefined && !isUnAuthorized">
 			<div ng-if="user">
 				<div class="icon">

@@ -147,6 +147,12 @@ a:hover {
 	background-color: #55bbfd;
 }
 
+#login-button.loading {
+	background-image: url("../img/loading-back-blue.gif");
+	background-position: center 50px;
+	background-size: 35px;
+}
+
 #login-user-block {
 	width: 100%;
 	height: 100%;

@@ -1,11 +1,11 @@
 angular.module('videosApp').
 	factory('VideoService', [ '$http', '$q', function ($http, $q) {
 		return {
-			reqList: function(pageNo, perpage) {
+			reqList: function(pageNo, perpage, unwatchOnly) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/videos/list/?page=' + pageNo + '&perpage=' + perpage
+					url    : '/api/videos/list/?page=' + pageNo + '&perpage=' + perpage + '&unwatch_only=' + unwatchOnly
 				}).success(function(res) {
 					deferred.resolve(res)
 				}).error(function() {
@@ -27,11 +27,11 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			reqMyList: function(pageNo, perpage) {
+			reqMyList: function(pageNo, perpage, unwatchOnly) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/my/videos/list/?page=' + pageNo + '&perpage=' + perpage
+					url    : '/api/my/videos/list/?page=' + pageNo + '&perpage=' + perpage + '&unwatch_only=' + unwatchOnly
 				}).success(function(res) {
 					deferred.resolve(res);
 				}).error(function() {
@@ -40,11 +40,11 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			reqContributorList: function(pageNo, perpage, contributorId) {
+			reqContributorList: function(pageNo, perpage, contributorId, unwatchOnly) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/contributors/' + contributorId + '/videos/list/?page=' + pageNo + '&perpage=' + perpage
+					url    : '/api/contributors/' + contributorId + '/videos/list/?page=' + pageNo + '&perpage=' + perpage + '&unwatch_only=' + unwatchOnly
 				}).success(function(res) {
 					deferred.resolve(res);
 				}).error(function() {

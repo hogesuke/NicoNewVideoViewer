@@ -1,5 +1,6 @@
 body {
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	overflow-y: scroll;
 }
 
 /* Bootstrap style override -> */
@@ -42,6 +43,10 @@ body {
 
 .loading-img.disabled, .adding-img.disabled {
 	display: none;
+}
+
+.video-tab-container .tool {
+	margin: 10px 0 12px 0;
 }
 
 .video-list {

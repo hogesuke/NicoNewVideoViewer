@@ -53,12 +53,13 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			reqVideosCount: function() {
+			reqVideosCount: function(unwatchOnly) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/videos/count/'
+					url    : '/api/videos/count/' + '?unwatch_only=' + unwatchOnly
 				}).success(function(res) {
+					console.info('all count : ' + res.count);
 					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
@@ -66,12 +67,13 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			reqMyVideosCount: function() {
+			reqMyVideosCount: function(unwatchOnly) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/my/videos/count/'
+					url    : '/api/my/videos/count/' + '?unwatch_only=' + unwatchOnly
 				}).success(function(res) {
+					console.info('my count : ' + res.count);
 					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO
@@ -79,12 +81,13 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
-			reqContributorVideosCount: function(contributorId) {
+			reqContributorVideosCount: function(contributorId, unwatchOnly) {
 				var deferred = $q.defer();
 				$http({
 					method : 'get',
-					url    : '/api/contributors/' + contributorId + '/videos/count/'
+					url    : '/api/contributors/' + contributorId + '/videos/count/' + '?unwatch_only=' + unwatchOnly
 				}).success(function(res) {
+					console.info('contributor count : ' + res.count);
 					deferred.resolve(res.count);
 				}).error(function() {
 					// TODO

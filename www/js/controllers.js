@@ -13,7 +13,7 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 			$scope.currentPage = 1;
 			$scope.isLoading = true;
 			$scope.videos = [];
-			VideoService.reqVideosCount().then(function (count) {
+			VideoService.reqVideosCount($scope.unwatchOnly).then(function (count) {
 				$scope.totalItems = count;
 			}).then(function () {
 				return VideoService.reqList(1, $scope.itemsPerPage, $scope.unwatchOnly);
@@ -98,7 +98,9 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 			}, function () {
 				$scope.isUnAuthorized = true;
 				return $.Deferred().reject().promise();
-			}).then(VideoService.reqMyVideosCount).then(function (count) {
+			}).then(function() {
+				return VideoService.reqMyVideosCount($scope.unwatchOnly);
+			}).then(function (count) {
 				$scope.totalItems = count;
 				if (count <= 0) {
 					return $.Deferred().reject().promise();
@@ -258,7 +260,7 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 			$scope.currentPage = 1;
 			$scope.isLoading = true;
 			$scope.videos = [];
-			VideoService.reqContributorVideosCount(contributorId).then(function (count) {
+			VideoService.reqContributorVideosCount(contributorId, $scope.unwatchOnly).then(function (count) {
 				$scope.totalItems = count;
 				if (count <= 0) {
 					return $.Deferred().reject().promise();

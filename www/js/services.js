@@ -105,6 +105,13 @@ angular.module('videosApp').
 				});
 				return deferred.promise;
 			},
+			getUnwatchOnly: function(tab) {
+				var unwatchOnly = localStorage.getItem(tab + '_unwatch_only');
+				return unwatchOnly === null ? false : JSON.parse(unwatchOnly);
+			},
+			setUnwatchOnly: function(unwatchOnly, tab) {
+				localStorage.setItem(tab + '_unwatch_only', unwatchOnly);
+			},
 			formatPostDatetime: function(unformatDatetime) {
 				moment.lang('ja');
 				return moment(unformatDatetime, "YYYYMMDDHHmm").format('YYYY/MM/DD HH:mm');

@@ -6,7 +6,7 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
-		$scope.unwatchOnly = false;
+		$scope.unwatchOnly = VideoService.getUnwatchOnly('all');
 		$scope.alerts = [];
 
 		var reqVideoList = function() {
@@ -36,6 +36,7 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
 
 		$scope.toggleUnwatchOnly = function() {
 			$scope.unwatchOnly = $scope.unwatchOnly ? false : true;
+			VideoService.setUnwatchOnly($scope.unwatchOnly, 'all');
 			reqVideoList();
 		}
 
@@ -84,7 +85,7 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
-		$scope.unwatchOnly = false;
+		$scope.unwatchOnly = VideoService.getUnwatchOnly('my');
 		$scope.isUnAuthorized = false;
 		$scope.alerts = [];
 
@@ -129,6 +130,7 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
 
 		$scope.toggleUnwatchOnly = function() {
 			$scope.unwatchOnly = $scope.unwatchOnly ? false : true;
+			VideoService.setUnwatchOnly($scope.unwatchOnly, 'my');
 			reqVideoList();
 		}
 
@@ -248,7 +250,7 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
-		$scope.unwatchOnly = false;
+		$scope.unwatchOnly = VideoService.getUnwatchOnly('contributor');
 		$scope.alerts = [];
 		var contributorId = TabService.getContributorId();
 
@@ -286,6 +288,7 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 
 		$scope.toggleUnwatchOnly = function() {
 			$scope.unwatchOnly = $scope.unwatchOnly ? false : true;
+			VideoService.setUnwatchOnly($scope.unwatchOnly, 'contributor');
 			reqVideoList();
 		}
 

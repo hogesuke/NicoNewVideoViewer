@@ -1,5 +1,5 @@
 <div class="tool">
-	<button class="btn btn-sm" ng-class="{'btn-info': unwatchOnly === true, 'btn-default': unwatchOnly === false}" ng-click="toggleUnwatchOnly()">
+	<button class="btn btn-sm" ng-class="{'btn-info': unwatchOnly === true, 'btn-default': unwatchOnly === false}" ng-click="toggleUnwatchOnly()" ng-show="isUnAuthorized !== undefined && !isUnAuthorized">
 		<span class="glyphicon glyphicon-filter"></span> 未視聴のみ表示
 	</button>
 </div>

@@ -1,13 +1,19 @@
 var stockVideosControllers = angular.module('stockVideosControllers', ['ui.bootstrap']);
 
-stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService', 'AlertService',
-	function($scope, VideoService, AlertService) {
+stockVideosControllers.controller('VideoListController', ['$scope', 'VideoService', 'AlertService', 'AuthorizeService',
+	function($scope, VideoService, AlertService, AuthorizeService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
 		$scope.isLoading = true;
 		$scope.unwatchOnly = VideoService.getUnwatchOnly('all');
 		$scope.alerts = [];
+
+		AuthorizeService.reqAuthorizeStatus().then(function () {
+			$scope.isUnAuthorized = false;
+		}, function () {
+			$scope.isUnAuthorized = true;
+		});
 
 		var reqVideoList = function() {
 			$scope.currentPage = 1;
@@ -266,8 +272,8 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
 		$scope.closeAlert = AlertService.closeAlert;
 	}]);
 
-stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService',
-	function($scope, VideoService, TabService, AlertService) {
+stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService', 'AuthorizeService',
+	function($scope, VideoService, TabService, AlertService, AuthorizeService) {
 		$scope.totalItems = 0;
 		$scope.itemsPerPage = 20;
 		$scope.currentPage = 1;
@@ -275,6 +281,12 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
 		$scope.unwatchOnly = VideoService.getUnwatchOnly('contributor');
 		$scope.alerts = [];
 		var contributorId = TabService.getContributorId();
+
+		AuthorizeService.reqAuthorizeStatus().then(function () {
+			$scope.isUnAuthorized = false;
+		}, function () {
+			$scope.isUnAuthorized = true;
+		});
 
 		var reqVideoList = function() {
 			$scope.currentPage = 1;

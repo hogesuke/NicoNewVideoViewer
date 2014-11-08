@@ -214,7 +214,6 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 
 		$scope.delete = function(contributorId) {
 			ContributorService.delete(contributorId, $scope.itemsPerPage, $scope.currentPage).then(function(contributors) {
-				console.debug(contributors);
 				$scope.contributors = contributors;
 			}, function() {
 				AlertService.addAlert($scope.alerts, 'ユーザーの削除に失敗しました。', 'danger');
@@ -275,7 +274,6 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
 stockVideosControllers.controller('UserController', ['$scope', 'UserService',
 	function($scope, UserService) {
 		UserService.reqUser().then(function(userData) {
-			console.info(userData);
 			$scope.user = userData;
 		});
 	}]);

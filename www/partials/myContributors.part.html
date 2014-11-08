@@ -32,14 +32,14 @@
 				<div class="col-sm-10">
 					<input type="text" name="id" ng-model="contributor.id" required ng-maxlength="10" ng-pattern="/^[0-9]+$/" ng-disabled="isUnAuthorized">
 					<div class="error-text">
-						<span ng-show="addContributor.id.$error.pattern">数字のみ入力できます。</span>
+						<span ng-show="addContributor.id.$error.pattern">半角数字のみ入力できます。</span>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<input class="btn btn-default" type="submit" value="add" ng-disabled="addContributor.$invalid">
-					<div class="adding-img" ng-class="{'enabled': isAdding === true, 'disabled': isAdding === false}"></div>
+					<input class="btn btn-default" type="submit" value="add" ng-disabled="addContributor.$invalid || isAdding">
+					<div class="adding-img" ng-class="{'enabled': isAdding, 'disabled': !isAdding}"></div>
 				</div>
 			</div>
 		</form>

@@ -186,9 +186,10 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
 		$scope.formAlerts = [];
 
 		AuthorizeService.reqAuthorizeStatus().then(function() {
-			// NOP
+			TabService.setActiveTab('my');
 		}, function() {
 			$scope.isUnAuthorized = true;
+			TabService.setActiveTab('all');
 			return $.Deferred().reject().promise();
 		}).then(ContributorService.reqCount).then(function(count) {
 			$scope.totalItems = count;

@@ -181,6 +181,13 @@ angular.module('videosApp').
 			},
 			getContributorId: function () {
 				return this.tabs[this.tabs.length - 1].contributor_id;
+			},
+			setActiveTab: function (id) {
+				angular.forEach(this.tabs, function(tab) {
+					if (tab.id === id) {
+						tab.active = true;
+					}
+				})
 			}
 		};
 	}]).

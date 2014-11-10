@@ -1,3 +1,7 @@
+<div ng-controller="AuthorizeController" ng-show="isUnAuthorized" class="bs-callout bs-callout-info">
+	<h4>ニコ中毒なニコ厨へ、NicoTune。</h4>
+	<p>NicoTuneはお気に入りユーザーの新着動画をより便利にウォッチできるツールです。</p>
+</div>
 <div ng-controller="VideoListTabsController">
 	<tabset>
 		<tab ng-repeat="tab in tabs" heading="{{ tab.name }}" active="tab.active">

@@ -27,6 +27,31 @@ body {
 	cursor: pointer;
 }
 
+.bs-callout {
+	margin-bottom: 20px;
+	padding: 15px 30px 15px 15px;
+	border-left: 5px solid #eee;
+}
+
+.bs-callout h4 {
+	margin-top: 0;
+	color: #294C6A;
+}
+
+.bs-callout p:last-child {
+	margin-bottom: 0;
+}
+
+.bs-callout code,
+.bs-callout .highlight {
+	background-color: #fff;
+}
+
+.bs-callout-info {
+	background-color: #D9EDF7;
+	border-color: #294C6A;
+}
+
 .alert {
 	margin: 10px 0;
 }

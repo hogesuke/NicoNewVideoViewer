@@ -1,6 +1,6 @@
 <div class="video-list" ng-show="0 < videos.length">
 	<div class="video-block" ng-repeat="video in videos">
-		<div class="video-info" style="background-image: url({{ video.thumbnail_url }});">
+		<div class="video-info" ng-style="{backgroundImage: 'url(' + video.thumbnail_url + ')'}">
 			<div class="contributor">
 				<img class="contributor-thumbnail" src="{{ video.icon_url }}">
 				<a class="name" ng-click="addTab(video.contributor_id, video.contributor_name,

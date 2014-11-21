@@ -272,6 +272,13 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
 			});
 		}
 
+		$scope.logout = function() {
+			$scope.isUnAuthorized = true;
+			AuthorizeService.logout().then(function() {
+				window.location = '/#top';
+			});
+		}
+
 		$scope.closeAlert = AlertService.closeAlert;
 	}]);
 

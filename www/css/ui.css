@@ -105,6 +105,21 @@ a:hover {
 	display: none;
 }
 
+#visual {
+	margin-bottom: 30px;
+	padding-left: 80px;
+	background: url(../img/gear.png) no-repeat;
+	background-size: 64px 64px;
+}
+
+#visual .catch-copy {
+	font-size: 30px;
+}
+
+#visual .description {
+	font-size: 14px;
+}
+
 .video-tab-container .tool {
 	margin: 10px 0 12px 0;
 }

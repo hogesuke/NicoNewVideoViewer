@@ -2,6 +2,7 @@
 	<div ng-controller="AuthorizeController">
 		<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
 		<button id="login-button" ng-show="isUnAuthorized" ng-click="login()" ng-class="{'loading': isLoading}">Twitterでログイン</button>
+		<div id="login-notice"><a href="#/agreement">利用規約</a>・<a href="#/privacy-policy">プライバシーポリシー</a>を確認していただき、<br>同意の上でログインをお願いいたします。</div>
 		<div id="login-user-block" ng-controller="UserController" ng-show="user && isUnAuthorized !== undefined && !isUnAuthorized">
 			<div ng-if="user">
 				<div class="icon">

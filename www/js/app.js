@@ -15,6 +15,12 @@ videosApp.config(['$routeProvider', '$httpProvider',
 				templateUrl: '../templates/video.tmpl.html',
 				controller: 'VideoDetailController'
 			}).
+			when('/agreement', {
+				templateUrl: '../templates/agreement.tmpl.html'
+			}).
+			when('/privacy-policy', {
+				templateUrl: '../templates/privacy_policy.tmpl.html'
+			}).
 			otherwise({
 				redirectTo: '/top'
 			});

@@ -275,6 +275,7 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
 		$scope.logout = function() {
 			$scope.isUnAuthorized = true;
 			AuthorizeService.logout().then(function() {
+				document.cookie='max-age=0;expires=' + new Date(0).toGMTString();
 				window.location.reload(true);
 			});
 		}

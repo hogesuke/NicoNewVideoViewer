@@ -5,8 +5,8 @@ var videosApp = angular.module('videosApp', [
 	'stockVideosControllers'
 ]);
 
-videosApp.config(['$routeProvider',
-	function($routeProvider) {
+videosApp.config(['$routeProvider', '$httpProvider',
+	function($routeProvider, $httpProvider) {
 		$routeProvider.
 			when('/top', {
 				templateUrl: '../templates/top.tmpl.html'
@@ -18,5 +18,11 @@ videosApp.config(['$routeProvider',
 			otherwise({
 				redirectTo: '/top'
 			});
+
+		// IEにてajaxリクエストをキャッシュしてしまう問題の対処
+		if (!$httpProvider.defaults.headers.get) {
+			$httpProvider.defaults.headers.get = {};
+		}
+		$httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 	}
 ]);

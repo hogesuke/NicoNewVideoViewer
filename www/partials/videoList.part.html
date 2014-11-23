@@ -6,7 +6,7 @@
 				<a class="name" ng-click="addTab(video.contributor_id, video.contributor_name,
 					'./partials/contributorVideoList.part.html', video.contributor_id)">{{ video.contributor_name }}</a>
 			</div>
-			<div class="title"><a href="http://www.nicovideo.jp/watch/sm{{ video.id }}" target="_blank">{{ video.title }}</a></div>
+			<div class="title"><a href="http://www.nicovideo.jp/watch/{{ video.prefix }}{{ video.id }}" target="_blank">{{ video.title }}</a></div>
 			<div class="footer">
 				<div class="post-datetime">{{ formatPostDatetime(video.post_datetime) }}</div>
 				<div class="tools">

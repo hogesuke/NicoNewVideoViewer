@@ -106,7 +106,15 @@ angular.module('videosApp').
 			},
 			formatPostDatetime: function(unformatDatetime) {
 				moment.lang('ja');
-				return moment(unformatDatetime, "YYYYMMDDHHmm").format('YYYY/MM/DD HH:mm');
+				var postedDatetime = moment(unformatDatetime, "YYYYMMDDHHmm");
+				var suffix = '';
+
+				if (moment().diff(postedDatetime, 'days') <= 0) {
+						suffix = postedDatetime.fromNow();
+				}
+
+				var ret = moment(unformatDatetime, "YYYYMMDDHHmm").format('YYYY/MM/DD HH:mm');
+				return suffix ? ret + ' (' + suffix + ')' : ret;
 			}
 		};
 	}]).

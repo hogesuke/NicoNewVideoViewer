@@ -38,13 +38,13 @@ stockVideosControllers.controller('VideoListController', ['$scope', 'VideoServic
       VideoService.watched($scope.videos[videoIndex].id).then(function(result) {
         $scope.videos[videoIndex].watched = result;
       });
-    }
+    };
 
     $scope.toggleUnwatchOnly = function() {
       $scope.unwatchOnly = $scope.unwatchOnly ? false : true;
       VideoService.setUnwatchOnly($scope.unwatchOnly, 'all');
       reqVideoList();
-    }
+    };
 
     $scope.setPage = function (pageNo) {
       $scope.currentPage = pageNo;
@@ -138,13 +138,13 @@ stockVideosControllers.controller('MyVideoListController', ['$scope', 'VideoServ
       VideoService.watched($scope.videos[videoIndex].id).then(function(result) {
         $scope.videos[videoIndex].watched = result;
       });
-    }
+    };
 
     $scope.toggleUnwatchOnly = function() {
       $scope.unwatchOnly = $scope.unwatchOnly ? false : true;
       VideoService.setUnwatchOnly($scope.unwatchOnly, 'my');
       reqVideoList();
-    }
+    };
 
     $scope.setPage = function (pageNo) {
       $scope.currentPage = pageNo;
@@ -227,7 +227,7 @@ stockVideosControllers.controller('MyContributorController', ['$scope', 'Contrib
       }, function() {
         AlertService.addAlert($scope.alerts, 'ユーザーの削除に失敗しました。', 'danger');
       });
-    }
+    };
 
     $scope.addTab = function(id, name, partial, contributorId) {
       TabService.addTab(id, name, partial, contributorId);
@@ -270,7 +270,7 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
         $scope.isLoading = false;
         AlertService.addAlert($scope.alerts, 'ログインに失敗しました。', 'danger');
       });
-    }
+    };
 
     $scope.logout = function() {
       $scope.isUnAuthorized = true;
@@ -278,7 +278,7 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
         document.cookie='max-age=0;expires=' + new Date(0).toGMTString();
         window.location.reload(true);
       });
-    }
+    };
 
     $scope.closeAlert = AlertService.closeAlert;
   }]);
@@ -290,8 +290,8 @@ stockVideosControllers.controller('UserController', ['$scope', 'UserService',
     });
   }]);
 
-stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService', 'AuthorizeService', 'TabService',
-  function($scope, VideoService, TabService, AlertService, AuthorizeService, TabService) {
+stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService', 'AuthorizeService',
+  function($scope, VideoService, TabService, AlertService, AuthorizeService) {
     $scope.totalItems = 0;
     $scope.itemsPerPage = 20;
     $scope.currentPage = 1;
@@ -336,13 +336,13 @@ stockVideosControllers.controller('ContributorVideoListController', ['$scope', '
       VideoService.watched($scope.videos[videoIndex].id).then(function(result) {
         $scope.videos[videoIndex].watched = result;
       });
-    }
+    };
 
     $scope.toggleUnwatchOnly = function() {
       $scope.unwatchOnly = $scope.unwatchOnly ? false : true;
       VideoService.setUnwatchOnly($scope.unwatchOnly, 'contributor');
       reqVideoList();
-    }
+    };
 
     $scope.setPage = function (pageNo) {
       $scope.currentPage = pageNo;

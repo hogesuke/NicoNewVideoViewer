@@ -1,68 +1,67 @@
 <div ng-controller="MyContributorController">
-	<div ng-controller="AuthorizeController">
-		<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
-		<button id="login-button" ng-show="isUnAuthorized" ng-click="login()" ng-class="{'loading': isLoading}">Twitterでログイン</button>
-		<div id="login-notice" ng-show="isUnAuthorized">
-			<a href="#/agreement">利用規約</a>・<a href="#/privacy-policy">プライバシーポリシー</a>を確認していただき、<br>同意の上でログインをお願いいたします。
-		</div>
-		<div id="login-user-block" ng-controller="UserController" ng-show="user && isUnAuthorized !== undefined && !isUnAuthorized">
-			<div ng-if="user">
-				<div class="icon">
-					<img src="http://twiticon.herokuapp.com/{{user.raw_name}}/bigger">
-				</div>
-				<div class="name">
-					{{user.name}}
-				</div>
-				<div class="counter">
-					<div class="count-block contributor-count">
-						<div class="count-caption">Fav Users</div>
-						<div class="count">{{user.contributor_count}}</div>
-					</div>
-					<div class="count-block comp-count">
-						<div class="count-caption">Watched</div>
-						<div class="count">{{user.comp_count}}</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="add-contributor-block">
-		<div class="caption"><span class="glyphicon glyphicon-plus"></span> お気に入りユーザーの追加</div>
-		<form novalidate name="addContributor" class="form form-horizontal" ng-submit="submit(contributor)">
-			<alert ng-repeat="alert in formAlerts" type="{{ alert.type }}" close="closeAlert(formAlerts, $index)">{{ alert.msg }}</alert>
-			<div class="form-group">
-				<label class="col-sm-2">ID</label>
-				<div class="col-sm-10">
-					<input type="text" name="id" ng-model="contributor.id" required ng-maxlength="10" ng-pattern="/^[0-9]+$/" ng-disabled="isUnAuthorized">
-					<div class="error-text">
-						<span ng-show="addContributor.id.$error.pattern">半角数字のみ入力できます。</span>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10">
-					<input class="btn btn-default" type="submit" value="add" ng-disabled="addContributor.$invalid || isAdding">
-					<div class="adding-img" ng-class="{'enabled': isAdding, 'disabled': !isAdding}"></div>
-				</div>
-			</div>
-		</form>
-		<div id="contributors-block">
-			<div class="caption"><span class="glyphicon glyphicon-star"></span> お気に入りユーザーリスト</div>
-			<div class="contributors-list">
-				<alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
-				<div class="contributor-block" ng-repeat="contributor in contributors">
-					<div class="name-block">
-						<a class="name" style="background-image: url({{ contributor.icon_url }});"
-						   ng-click="addTab(contributor.id, contributor.name,
-				   './partials/contributorVideoList.part.html', contributor.id)">{{ contributor.name }}</a>
-					</div>
-					<button class="remove-btn btn btn-default btn-xs" ng-click="delete(contributor.id)"><span class="glyphicon glyphicon-trash"></span></button>
-				</div>
-				<div class="loading-img" ng-class="{'enabled': isLoading === true, 'disabled': isLoading === false}"></div>
-				<div class="pagination-block">
-					<pager class="pager-sm" ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Previous" next-text="Next »"></pager>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div ng-controller="AuthorizeController">
+    <alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
+    <button id="login-button" ng-show="isUnAuthorized" ng-click="login()" ng-class="{'loading': isLoading}">Twitterでログイン</button>
+    <div id="login-notice" ng-show="isUnAuthorized">
+      <a href="#/agreement">利用規約</a>・<a href="#/privacy-policy">プライバシーポリシー</a>を確認していただき、<br>同意の上でログインをお願いいたします。
+    </div>
+    <div id="login-user-block" ng-controller="UserController" ng-show="user && isUnAuthorized !== undefined && !isUnAuthorized">
+      <div ng-if="user">
+        <div class="icon">
+          <img src="http://twiticon.herokuapp.com/{{user.raw_name}}/bigger">
+        </div>
+        <div class="name">
+          {{user.name}}
+        </div>
+        <div class="counter">
+          <div class="count-block contributor-count">
+            <div class="count-caption">Fav Users</div>
+            <div class="count">{{user.contributor_count}}</div>
+          </div>
+          <div class="count-block comp-count">
+            <div class="count-caption">Watched</div>
+            <div class="count">{{user.comp_count}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="add-contributor-block">
+    <div class="caption"><span class="glyphicon glyphicon-plus"></span> お気に入りユーザーの追加</div>
+    <form novalidate name="addContributor" class="form form-horizontal" ng-submit="submit(contributor)">
+      <alert ng-repeat="alert in formAlerts" type="{{ alert.type }}" close="closeAlert(formAlerts, $index)">{{ alert.msg }}</alert>
+      <div class="form-group">
+        <label class="col-sm-2">ID</label>
+        <div class="col-sm-10">
+          <input type="text" name="id" ng-model="contributor.id" required ng-maxlength="10" ng-pattern="/^[0-9]+$/" ng-disabled="isUnAuthorized">
+          <div class="error-text">
+            <span ng-show="addContributor.id.$error.pattern">半角数字のみ入力できます。</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input class="btn btn-default" type="submit" value="add" ng-disabled="addContributor.$invalid || isAdding">
+          <div class="adding-img" ng-class="{'enabled': isAdding, 'disabled': !isAdding}"></div>
+        </div>
+      </div>
+    </form>
+    <div id="contributors-block">
+      <div class="caption"><span class="glyphicon glyphicon-star"></span> お気に入りユーザーリスト</div>
+      <div class="contributors-list">
+        <alert ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert(alerts, $index)">{{ alert.msg }}</alert>
+        <div class="contributor-block" ng-repeat="contributor in contributors">
+          <div class="name-block">
+            <a class="name" style="background-image: url({{ contributor.icon_url }});"
+               ng-click="addTab(contributor.id, contributor.name, './partials/contributorVideoList.part.html', contributor.id)">{{ contributor.name }}</a>
+          </div>
+          <button class="remove-btn btn btn-default btn-xs" ng-click="delete(contributor.id)"><span class="glyphicon glyphicon-trash"></span></button>
+        </div>
+        <div class="loading-img" ng-class="{'enabled': isLoading === true, 'disabled': isLoading === false}"></div>
+        <div class="pagination-block">
+          <pager class="pager-sm" ng-change="pageChanged()" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" previous-text="« Previous" next-text="Next »"></pager>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

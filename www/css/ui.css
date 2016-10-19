@@ -1,71 +1,71 @@
 html {
-	position: relative;
-	min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-	overflow-y: scroll;
-	margin-bottom: 25px;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  overflow-y: scroll;
+  margin-bottom: 25px;
 }
 
 #footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 25px;
-	padding-top: 3px;
-	border-top: solid 1px lightgray;
-	background-color: #eeeeee;
-	text-align: right;
-	font-size: 12px;
-	color: #757575;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  padding-top: 3px;
+  border-top: solid 1px lightgray;
+  background-color: #eeeeee;
+  text-align: right;
+  font-size: 12px;
+  color: #757575;
 }
 
 #footer .container span {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 
 /* Bootstrap style override -> */
 .nav, .pagination, .carousel, .panel-title a {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .bs-callout {
-	margin-bottom: 20px;
-	padding: 15px 30px 15px 15px;
-	border-left: 5px solid #eee;
+  margin-bottom: 20px;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
 }
 
 .bs-callout h4 {
-	margin-top: 0;
-	color: #294C6A;
+  margin-top: 0;
+  color: #294C6A;
 }
 
 .bs-callout p:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .bs-callout code,
 .bs-callout .highlight {
-	background-color: #fff;
+  background-color: #fff;
 }
 
 .bs-callout-info {
-	background-color: #D9EDF7;
-	border-color: #294C6A;
+  background-color: #D9EDF7;
+  border-color: #294C6A;
 }
 
 .alert {
-	margin: 10px 0;
+  margin: 10px 0;
 }
 
 #header {
-	background-color: #294C6A;
+  background-color: #294C6A;
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
-	color: #ffffff;
+  color: #ffffff;
 }
 /* <- Bootstrap style override */
 
@@ -73,261 +73,261 @@ a:link,
 a:visited,
 a:active,
 a:hover {
-	overflow: hidden;
-	outline: none;
+  overflow: hidden;
+  outline: none;
 }
 
 .hide {
-	display: none;
+  display: none;
 }
 
 .loading-img {
-	width: 100%;
-	height: 100px;
-	background: url(../img/loading.gif) no-repeat center;
-	background-size: 32px 32px;
+  width: 100%;
+  height: 100px;
+  background: url(../img/loading.gif) no-repeat center;
+  background-size: 32px 32px;
 }
 
 .adding-img {
-	float: right;
-	width: 24px;
-	height: 24px;
-	margin: 8px 4px 0 0;
-	background: url(../img/loading.gif) no-repeat center;
-	background-size: 24px 24px;
+  float: right;
+  width: 24px;
+  height: 24px;
+  margin: 8px 4px 0 0;
+  background: url(../img/loading.gif) no-repeat center;
+  background-size: 24px 24px;
 }
 
 .loading-img.enabled, .adding-img.enabled {
-	display: block;
+  display: block;
 }
 
 .loading-img.disabled, .adding-img.disabled {
-	display: none;
+  display: none;
 }
 
 #visual {
-	margin-bottom: 30px;
-	padding-left: 80px;
-	background: url(../img/gear.png) no-repeat;
-	background-size: 64px 64px;
+  margin-bottom: 30px;
+  padding-left: 80px;
+  background: url(../img/gear.png) no-repeat;
+  background-size: 64px 64px;
 }
 
 #visual .catch-copy {
-	font-size: 30px;
+  font-size: 30px;
 }
 
 #visual .description {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .video-tab-container .tool {
-	margin: 10px 0 12px 0;
+  margin: 10px 0 12px 0;
 }
 
 .video-list {
-	padding: 20px 20px;
-	border: solid 1px lightgray;
+  padding: 20px 20px;
+  border: solid 1px lightgray;
 }
 
 .video-block {
-	padding: 15px 8px;
-	clear: both;
-	overflow: hidden;
-	border-bottom: solid 1px lightgray;
+  padding: 15px 8px;
+  clear: both;
+  overflow: hidden;
+  border-bottom: solid 1px lightgray;
 }
 
 .video-block .video-info {
-	height: 80px;
-	width: 100%;
-	padding-left: 120px;
-	background-size: 104px 80px;
-	background-repeat: no-repeat;
-	position: relative;
+  height: 80px;
+  width: 100%;
+  padding-left: 120px;
+  background-size: 104px 80px;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .video-block .video-info .watched-btn.btn-default {
-	color: #8f8f8f;
+  color: #8f8f8f;
 }
 
 .video-block .video-info .title, .contributor {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .video-block .video-info .contributor {
-	margin-bottom: 5px;
-	font-size: 13px;
+  margin-bottom: 5px;
+  font-size: 13px;
 }
 
 .video-block .video-info .title {
-	margin-bottom: 10px;
-	font-size: 15px;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .video-block .video-info .footer {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-	width: 100%;
-	padding-left: 120px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  padding-left: 120px;
 }
 
 .video-block .video-info .footer .post-datetime {
-	position: absolute;
-	bottom: 0px;
-	float: left;
-	font-size: 12px;
-	color: #8f8f8f;
+  position: absolute;
+  bottom: 0px;
+  float: left;
+  font-size: 12px;
+  color: #8f8f8f;
 }
 
 .video-block .video-info .footer .tools {
-	float: right;
+  float: right;
 }
 
 .contributor-thumbnail {
-	width: 24px;
-	height: 24px;
-	margin: 3px 6px 3px 3px;
+  width: 24px;
+  height: 24px;
+  margin: 3px 6px 3px 3px;
 }
 
 #login-button {
-	width: 100%;
-	height: 170px;
-	margin-bottom: 10px;
-	padding: 100px 20px 0 20px;
-	background: #55ACEE url("../img/Twitter_logo_white.png") no-repeat center 30px;
-	background-size: 80px;
-	border: none;
-	box-shadow: none;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	font-size: 20px;
-	color: #ffffff;
+  width: 100%;
+  height: 170px;
+  margin-bottom: 10px;
+  padding: 100px 20px 0 20px;
+  background: #55ACEE url("../img/Twitter_logo_white.png") no-repeat center 30px;
+  background-size: 80px;
+  border: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  font-size: 20px;
+  color: #ffffff;
 }
 
 #login-button:hover {
-	background-color: #55bbfd;
+  background-color: #55bbfd;
 }
 
 #login-button.loading {
-	background-image: url("../img/loading-back-blue.gif");
-	background-position: center 50px;
-	background-size: 35px;
+  background-image: url("../img/loading-back-blue.gif");
+  background-position: center 50px;
+  background-size: 35px;
 }
 
 #login-notice {
-	margin-bottom: 20px;
-	font-size: 11px;
-	text-align: center;
+  margin-bottom: 20px;
+  font-size: 11px;
+  text-align: center;
 }
 
 #login-user-block {
-	width: 100%;
-	height: 100%;
-	margin-bottom: 20px;
-	overflow: hidden;
-	padding: 20px 20px 10px 20px;
-	border: solid 1px lightgray;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 20px 20px 10px 20px;
+  border: solid 1px lightgray;
 }
 
 #login-user-block .icon {
-	margin-bottom: 10px;
-	text-align: center;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 #login-user-block .name {
-	margin-bottom: 10px;
-	text-align: center;
-	font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 20px;
 }
 
 #login-user-block .counter {
-	border-top: solid 1px lightgray;
+  border-top: solid 1px lightgray;
 }
 
 #login-user-block .counter .count-block {
-	float: left;
-	width: 50%;
-	margin-top: 5px;
-	text-align: center;
+  float: left;
+  width: 50%;
+  margin-top: 5px;
+  text-align: center;
 }
 
 #login-user-block .counter .count-block .count-caption {
-	text-align: center;
-	font-size: 14px;
+  text-align: center;
+  font-size: 14px;
 }
 
 #login-user-block .counter .count-block .count {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 .caption {
-	padding: 8px 17px;
-	border-style: solid;
-	border-width: 1px 1px 1px 1px;
-	border-color: lightgray lightgray lightgray lightgray;
-	background-color: #eeeeee;
+  padding: 8px 17px;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: lightgray lightgray lightgray lightgray;
+  background-color: #eeeeee;
 }
 
 #add-contributor-block .form {
-	margin-bottom: 20px;
-	padding: 17px 20px 2px 20px;
-	border-bottom: solid 1px lightgray;
-	border-left: solid 1px lightgray;
-	border-right: solid 1px lightgray;
+  margin-bottom: 20px;
+  padding: 17px 20px 2px 20px;
+  border-bottom: solid 1px lightgray;
+  border-left: solid 1px lightgray;
+  border-right: solid 1px lightgray;
 }
 
 #contributors-block .contributors-list {
-	margin-bottom: 20px;
-	padding: 17px 20px 0px 20px;
-	border-bottom: solid 1px lightgray;
-	border-left: solid 1px lightgray;
-	border-right: solid 1px lightgray;
+  margin-bottom: 20px;
+  padding: 17px 20px 0px 20px;
+  border-bottom: solid 1px lightgray;
+  border-left: solid 1px lightgray;
+  border-right: solid 1px lightgray;
 }
 
 #contributors-block .contributors-list .pagination-block {
 }
 
 #contributors-block .contributors-list .contributor-block {
-	clear: both;
-	margin: 3px 0;
+  clear: both;
+  margin: 3px 0;
 }
 
 #contributors-block .contributors-list .contributor-block .name-block {
-	width: 83%;
-	float: left;
+  width: 83%;
+  float: left;
 }
 
 #contributors-block .contributors-list .contributor-block .name-block .name {
-	width: 95%;
-	padding-left: 30px;
-	float: left;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	background-size: 24px 24px;
-	background-repeat: no-repeat;
+  width: 95%;
+  padding-left: 30px;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
 }
 
 form[name="addContributor"] .error-text {
-	margin-top: 10px;
-	color: #c32728;
+  margin-top: 10px;
+  color: #c32728;
 }
 
 form[name="addContributor"] input[name="id"] {
-	width: 100%;
-	padding: 0 5px;
+  width: 100%;
+  padding: 0 5px;
 }
 
 #agreement, #privacy-policy {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 #agreement h3, #privacy-policy h3 {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #agreement h4, #privacy-policy h4 {
-	margin-top: 20px;
+  margin-top: 20px;
 }

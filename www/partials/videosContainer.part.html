@@ -1,25 +1,25 @@
 <div id="visual" ng-controller="AuthorizeController" ng-show="isUnAuthorized">
-	<div class="catch-copy">NicoTune</div>
-	<div class="description">NicoTuneはお気に入りユーザーの新着動画をより便利にウォッチできるツールです。</div>
+  <div class="catch-copy">NicoTune</div>
+  <div class="description">NicoTuneはお気に入りユーザーの新着動画をより便利にウォッチできるツールです。</div>
 </div>
 <!-- 広告 start -->
 <div ng-controller="AuthorizeController" ng-show="isUnAuthorized != undefined && !isUnAuthorized" style="width: 468px; margin: 0 auto;">
-	<a href="https://px.a8.net/svt/ejp?a8mat=2NTB30+A1ZM4I+3F2A+60OXD&cid=a13032385546" target="_blank">
-		<img border="0" width="468" height="60" alt="" src="https://www20.a8.net/svt/bgt?aid=160930908608&wid=003&eno=01&mid=s00000015949001011000&mc=1"></a>
-	<img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=2NTB30+A1ZM4I+3F2A+60OXD" alt="">
+  <a href="https://px.a8.net/svt/ejp?a8mat=2NTB30+A1ZM4I+3F2A+60OXD&cid=a13032385546" target="_blank">
+    <img border="0" width="468" height="60" alt="" src="https://www20.a8.net/svt/bgt?aid=160930908608&wid=003&eno=01&mid=s00000015949001011000&mc=1"></a>
+  <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=2NTB30+A1ZM4I+3F2A+60OXD" alt="">
 </div>
 <!-- 広告 end -->
 <div ng-controller="VideoListTabsController">
-	<tabset>
-		<tab ng-repeat="tab in tabs" heading="{{ tab.name }}" active="tab.active">
-			<div class="tab-pane" id="{{ tab.id }}" ng-include="tab.partial"></div>
-		</tab>
-	</tabset>
+  <tabset>
+    <tab ng-repeat="tab in tabs" heading="{{ tab.name }}" active="tab.active">
+      <div class="tab-pane" id="{{ tab.id }}" ng-include="tab.partial"></div>
+    </tab>
+  </tabset>
 </div>
 <!-- 広告 start -->
 <div ng-controller="AuthorizeController" ng-show="isUnAuthorized != undefined && !isUnAuthorized" style="width: 468px; margin: 10px auto;">
-	<a href="https://px.a8.net/svt/ejp?a8mat=2NTB30+ESV0QQ+3K9S+5ZEMP" target="_blank">
-		<img border="0" width="468" height="60" alt="" src="https://www28.a8.net/svt/bgt?aid=160930908895&wid=003&eno=01&mid=s00000016624001005000&mc=1"></a>
-	<img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=2NTB30+ESV0QQ+3K9S+5ZEMP" alt="">
+  <a href="https://px.a8.net/svt/ejp?a8mat=2NTB30+ESV0QQ+3K9S+5ZEMP" target="_blank">
+    <img border="0" width="468" height="60" alt="" src="https://www28.a8.net/svt/bgt?aid=160930908895&wid=003&eno=01&mid=s00000016624001005000&mc=1"></a>
+  <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=2NTB30+ESV0QQ+3K9S+5ZEMP" alt="">
 </div>
 <!-- 広告 end -->

@@ -281,14 +281,16 @@ stockVideosControllers.controller('AuthorizeController', ['$scope', 'AlertServic
     };
 
     $scope.closeAlert = AlertService.closeAlert;
-  }]);
+  }
+]);
 
 stockVideosControllers.controller('UserController', ['$scope', 'UserService',
   function($scope, UserService) {
     UserService.reqUser().then(function(userData) {
       $scope.user = userData;
     });
-  }]);
+  }
+]);
 
 stockVideosControllers.controller('ContributorVideoListController', ['$scope', 'VideoService', 'TabService', 'AlertService', 'AuthorizeService',
   function($scope, VideoService, TabService, AlertService, AuthorizeService) {

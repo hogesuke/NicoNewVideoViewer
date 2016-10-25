@@ -5,6 +5,8 @@ var videosApp = angular.module('videosApp', [
   'stockVideosControllers'
 ]);
 
+angular.module('stockVideosControllers', ['ui.bootstrap']);
+
 videosApp.config(['$routeProvider', '$httpProvider', '$locationProvider',
   function($routeProvider, $httpProvider, $locationProvider) {
     $locationProvider.html5Mode(true);

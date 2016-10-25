@@ -1,4 +1,4 @@
-var stockVideosControllers = angular.module('stockVideosControllers', ['ui.bootstrap']);
+var stockVideosControllers = angular.module('stockVideosControllers');
 
 stockVideosControllers.controller('MyContributorController', ['$scope', 'ContributorService', 'TabService', 'AlertService', 'AuthorizeService',
   function($scope, ContributorService, TabService, AlertService, AuthorizeService) {

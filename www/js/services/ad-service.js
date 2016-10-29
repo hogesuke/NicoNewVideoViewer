@@ -90,6 +90,36 @@ angular.module('videosApp').factory('AdService', [function() {
         anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVEAB+86PMRM+2KX0+1HQ5MP',
         imgUrl   : 'https://www26.a8.net/svt/bgt?aid=161028371495&wid=003&eno=01&mid=s00000012042009024000&mc=1',
         secretUrl: 'https://www11.a8.net/0.gif?a8mat=2NVEAB+86PMRM+2KX0+1HQ5MP'
+      },
+      {
+        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVEAB+85IRK2+NTS+NVHCX',
+        imgUrl   : 'https://www25.a8.net/svt/bgt?aid=161028371493&wid=003&eno=01&mid=s00000003088004010000&mc=1',
+        secretUrl: 'https://www11.a8.net/0.gif?a8mat=2NVEAB+85IRK2+NTS+NVHCX'
+      },
+      {
+        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+CKHI2Q+1EB4+5YJRL',
+        imgUrl   : 'https://www28.a8.net/svt/bgt?aid=161020260760&wid=003&eno=01&mid=s00000006520001001000&mc=1',
+        secretUrl: 'https://www17.a8.net/0.gif?a8mat=2NV810+CKHI2Q+1EB4+5YJRL'
+      },
+      {
+        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVF2Q+5VCY2Q+8BQ+5YJRL',
+        imgUrl   : 'https://www27.a8.net/svt/bgt?aid=161029394355&wid=003&eno=01&mid=s00000001079001001000&mc=1',
+        secretUrl: 'https://www19.a8.net/0.gif?a8mat=2NVF2Q+5VCY2Q+8BQ+5YJRL'
+      },
+      {
+        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVF2Q+5OT6F6+1LX0+614CX',
+        imgUrl   : 'https://www25.a8.net/svt/bgt?aid=161029394344&wid=003&eno=01&mid=s00000007506001013000&mc=1',
+        secretUrl: 'https://www16.a8.net/0.gif?a8mat=2NVF2Q+5OT6F6+1LX0+614CX'
+      },
+      {
+        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVF2Q+5MFG02+2NPU+5ZU29',
+        imgUrl   : 'https://www24.a8.net/svt/bgt?aid=161029394340&wid=003&eno=01&mid=s00000012405001007000&mc=1',
+        secretUrl: 'https://www10.a8.net/0.gif?a8mat=2NVF2Q+5MFG02+2NPU+5ZU29'
+      },
+      {
+        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVF2Q+5MFG02+2NPU+6IP2P',
+        imgUrl   : 'https://www27.a8.net/svt/bgt?aid=161029394340&wid=003&eno=01&mid=s00000012405001095000&mc=1',
+        secretUrl: 'https://www19.a8.net/0.gif?a8mat=2NVF2Q+5MFG02+2NPU+6IP2P'
       }
     ],
     pick: function () {

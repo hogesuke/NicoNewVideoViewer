@@ -32,11 +32,6 @@ angular.module('videosApp').factory('AdService', [function() {
         secretUrl: 'https://www17.a8.net/0.gif?a8mat=2NV810+CCQV7M+2UOE+1HN5LT'
       },
       {
-        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+CDXQF6+32S2+BXQOH',
-        imgUrl   : 'https://www26.a8.net/svt/bgt?aid=161020260749&wid=003&eno=01&mid=s00000014357002005000&mc=1',
-        secretUrl: 'https://www18.a8.net/0.gif?a8mat=2NV810+CDXQF6+32S2+BXQOH'
-      },
-      {
         anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVCQ9+2IHY9U+1WP2+63H8H',
         imgUrl   : 'https://www26.a8.net/svt/bgt?aid=161026353152&wid=003&eno=01&mid=s00000008903001024000&mc=1',
         secretUrl: 'https://www10.a8.net/0.gif?a8mat=2NVCQ9+2IHY9U+1WP2+63H8H'

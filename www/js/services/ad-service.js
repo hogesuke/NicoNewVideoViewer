@@ -12,26 +12,6 @@ angular.module('videosApp').factory('AdService', [function() {
         secretUrl: 'https://www14.a8.net/0.gif?a8mat=2NTB30+ESV0QQ+3K9S+5ZEMP'
       },
       {
-        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+C9RP6Q+2PY4+I4081',
-        imgUrl   : 'https://www28.a8.net/svt/bgt?aid=161020260742&wid=003&eno=01&mid=s00000012694003042000&mc=1',
-        secretUrl: 'https://www17.a8.net/0.gif?a8mat=2NV810+C9RP6Q+2PY4+I4081'
-      },
-      {
-        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+C969KY+80W+HVNAP',
-        imgUrl   : 'https://www27.a8.net/svt/bgt?aid=161020260741&wid=003&eno=01&mid=s00000001040003003000&mc=1',
-        secretUrl: 'https://www12.a8.net/0.gif?a8mat=2NV810+C969KY+80W+HVNAP'
-      },
-      {
-        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+CLODAA+2X9G+ZRIB5',
-        imgUrl   : 'https://www24.a8.net/svt/bgt?aid=161020260762&wid=003&eno=01&mid=s00000013642006007000&mc=1',
-        secretUrl: 'https://www13.a8.net/0.gif?a8mat=2NV810+CLODAA+2X9G+ZRIB5'
-      },
-      {
-        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+CM9SW2+33QI+BXQOH',
-        imgUrl   : 'https://www26.a8.net/svt/bgt?aid=161020260763&wid=003&eno=01&mid=s00000014481002005000&mc=1',
-        secretUrl: 'https://www19.a8.net/0.gif?a8mat=2NV810+CM9SW2+33QI+BXQOH'
-      },
-      {
         anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+CI3RNM+MZI+3N1AJ5',
         imgUrl   : 'https://www28.a8.net/svt/bgt?aid=161020260756&wid=003&eno=01&mid=s00000002979022009000&mc=1',
         secretUrl: 'https://www19.a8.net/0.gif?a8mat=2NV810+CI3RNM+MZI+3N1AJ5'
@@ -45,11 +25,6 @@ angular.module('videosApp').factory('AdService', [function() {
         anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+CJW2GY+33DG+61JSH',
         imgUrl   : 'https://www29.a8.net/svt/bgt?aid=161020260759&wid=003&eno=01&mid=s00000014434001015000&mc=1',
         secretUrl: 'https://www19.a8.net/0.gif?a8mat=2NV810+CJW2GY+33DG+61JSH'
-      },
-      {
-        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+CGBGUA+MZI+3B4MFL',
-        imgUrl   : 'https://www22.a8.net/svt/bgt?aid=161020260753&wid=003&eno=01&mid=s00000002979020009000&mc=1',
-        secretUrl: 'https://www16.a8.net/0.gif?a8mat=2NV810+CGBGUA+MZI+3B4MFL'
       },
       {
         anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NV810+CCQV7M+2UOE+1HN5LT',

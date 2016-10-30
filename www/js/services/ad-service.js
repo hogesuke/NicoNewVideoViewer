@@ -21,11 +21,6 @@ angular.module('videosApp').factory('AdService', [function() {
         imgUrl   : 'https://www26.a8.net/svt/bgt?aid=141124025711&wid=003&eno=01&mid=s00000003088001187000&mc=1',
         secretUrl: 'https://www17.a8.net/0.gif?a8mat=2C0RZT+BRB9FM+NTS+72EY9'
       },
-      { // パンダネット
-        anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVF2Q+5VCY2Q+8BQ+5YJRL',
-        imgUrl   : 'https://www27.a8.net/svt/bgt?aid=161029394355&wid=003&eno=01&mid=s00000001079001001000&mc=1',
-        secretUrl: 'https://www19.a8.net/0.gif?a8mat=2NVF2Q+5VCY2Q+8BQ+5YJRL'
-      },
       { // 麻雀ゲーム
         anchorUrl: 'https://px.a8.net/svt/ejp?a8mat=2NVF2Q+5OT6F6+1LX0+614CX',
         imgUrl   : 'https://www25.a8.net/svt/bgt?aid=161029394344&wid=003&eno=01&mid=s00000007506001013000&mc=1',
